@@ -27,7 +27,9 @@ public class WeatherDriver {
 
         int index = 0;
         for (String s : zipList){
-            System.out.println(zipList[index]);
+            // Conditional statements are wonderful. I enjoy using them for formating
+            String format = (index == 0 ? "Latitude: " + zipList[index] : index == 1 ? "Longitude: " + zipList[index] : index == 2 ? "Country Name: " + zipList[index]: "City Name: " + zipList[index]);
+            System.out.println(format);
             index++;
         }
 
