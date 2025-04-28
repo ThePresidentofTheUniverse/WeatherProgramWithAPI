@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /*----------------------------------------------------
  * Program Title: Weather Program With API Implementation
  * Author: Nolan Abbott
@@ -12,6 +14,7 @@
 public class WeatherDriver {
 
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
 
     }
 }
