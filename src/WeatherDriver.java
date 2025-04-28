@@ -14,7 +14,22 @@ import java.util.Scanner;
 public class WeatherDriver {
 
     public static void main(String[] args) {
+
+
+        //Asks for user input
         Scanner scan = new Scanner(System.in);
+        System.out.print("Please enter the initials of a country: ");
+        String countryInit = scan.nextLine();
+        System.out.print("Please enter the desired zip code: ");
+        String zipCode = scan.nextLine();
+
+        String[] zipList = ZipToCountry.CountryZipCode(countryInit, zipCode);
+
+        int index = 0;
+        for (String s : zipList){
+            System.out.println(zipList[index]);
+            index++;
+        }
 
     }
 }
