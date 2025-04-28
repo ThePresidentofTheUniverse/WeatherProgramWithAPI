@@ -12,26 +12,6 @@ import java.util.Scanner;
 
 public class ZipToCountry {
 
-    public static void main(String[] args) {
-        //This main is a quick test to make sure country works
-
-
-        Scanner scan = new Scanner(System.in);
-        System.out.println("country");
-        String country = scan.nextLine();
-        System.out.println("zipcode");
-        String zipcode = scan.nextLine();
-
-        String[] zipList = CountryZipCode(country, zipcode);
-
-        int index = 0;
-        for (String s : zipList){
-            System.out.println(zipList[index]);
-            index++;
-        }
-
-    }
-
 
         public static String[] CountryZipCode (String countryAB, String zipCode){
 
