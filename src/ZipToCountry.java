@@ -13,23 +13,34 @@ import java.util.Scanner;
 public class ZipToCountry {
 
     public static void main(String[] args) {
+        //This main is a quick test to make sure country works
+
+
         Scanner scan = new Scanner(System.in);
         System.out.println("country");
         String country = scan.nextLine();
         System.out.println("zipcode");
         String zipcode = scan.nextLine();
 
-        CountryZipCode(country, zipcode);
+        String[] zipList = CountryZipCode(country, zipcode);
+
+        int index = 0;
+        for (String s : zipList){
+            System.out.println(zipList[index]);
+            index++;
+        }
 
     }
 
 
-        public static String CountryZipCode (String countryAB, String zipCode){
+        public static String[] CountryZipCode (String countryAB, String zipCode){
 
-            String latitude;
-            String longitude;
-            String country;
-            String city;
+            String[] zipList = new String[4]; //Uses an array list to return all items
+            /* 0 = latitude
+               1 = longitude
+               2 = country
+               3 = city
+             */
 
             try {
                 String apiurl = "https://api.zippopotam.us/" + countryAB + "/" + zipCode; //One of them allows the country initials to be entered, other is for zipcode
@@ -52,10 +63,10 @@ public class ZipToCountry {
 
                     //Parsing the response here.
                     JSONObject jsonResponse = new JSONObject(content.toString());
-                    latitude = jsonResponse.getJSONArray("places").getJSONObject(0).getString("latitude");
-                    longitude = jsonResponse.getJSONArray("places").getJSONObject(0).getString("longitude");
-                    country = jsonResponse.getJSONArray("country").getJSONObject(0).getString("country");
-                    city= jsonResponse.getJSONArray("places").getJSONObject(0).getString("city");
+                    zipList[0] = jsonResponse.getJSONArray("places").getJSONObject(0).getString("latitude"); //latitude
+                    zipList[1] = jsonResponse.getJSONArray("places").getJSONObject(0).getString("longitude"); //longitude
+                    zipList[2] = jsonResponse.getString("country"); //country
+                   zipList[3] = jsonResponse.getJSONArray("places").getJSONObject(0).getString("place name"); //city
                 }
             } catch (ProtocolException e) {
                 throw new RuntimeException(e);
@@ -65,8 +76,7 @@ public class ZipToCountry {
                 throw new RuntimeException(e);
             }
 
-
-            return latitude, longitude, city, country;
+            return zipList;
         }
 
 }
