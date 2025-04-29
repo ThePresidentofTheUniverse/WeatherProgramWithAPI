@@ -36,9 +36,9 @@ public class WeatherSettings {
         double[] rawRain = new double[167];
         double[] rawWindDirect = new double[167];
 
+        //All compiled data, merged into seven day forecasts
 
-
-        try {
+        try { //big try-catch statement that grabs a LOT of data.
             String apiurl = "https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longitude + "&hourly=temperature_2m,wind_speed_10m,snowfall,showers,rain,wind_direction_10m"; //The URL
             URL url = new URL (apiurl);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -102,17 +102,22 @@ public class WeatherSettings {
                         index++;
                     }
                 }
+
                 //wind direction
                 index = 0; //resets index
                 for (double d: rawWindDirect){
                     if (jsonResponse != null){
                         rawWindDirect[index] = jsonResponse.getJSONObject("hourly").getJSONArray("wind_direction_10m").getDouble(index);
+                        index++;
                     }
                 }
+                index = 0; //resets index for later use.
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+
       return;
     }
 }
