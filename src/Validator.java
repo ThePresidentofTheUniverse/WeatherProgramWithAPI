@@ -6,7 +6,7 @@ public class Validator {
 
     public static List<String> validateInput(String countryInit, String zipCode){
         List<String> errors = new ArrayList<>();
-        if(isValidCountryInitials(countryInit)){
+        if(!isValidCountryInitials(countryInit)){
             errors.add("The country initials are not valid, please check input.");
         }
         if(!isValidZipCode(zipCode, countryInit)){
@@ -18,7 +18,7 @@ public class Validator {
 
     //Country Initials validation
     private static boolean isValidCountryInitials(String countryInit){
-        return countryInit != null && countryInit.trim().isEmpty(); // && countryInit.length() == 2;
+        return countryInit != null && !countryInit.trim().isEmpty();
     }
 
     //Zip code validation (I built a separate method for this validation).
