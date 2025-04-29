@@ -33,5 +33,10 @@ public class WeatherDriver {
             index++;
         }
 
+        System.out.println("The weather in massive string format: ");
+        String weatherList = WeatherSettings.weatherChecker(Double.parseDouble(zipList[0]), Double.parseDouble(zipList[1]));
+
+        System.out.println(weatherList);
+
     }
 }

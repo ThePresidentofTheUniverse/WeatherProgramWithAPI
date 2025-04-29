@@ -8,14 +8,6 @@ import java.net.URL;
 
 public class WeatherSettings {
 
-    public static void main(String[] args) { //for testing purposes
-
-        String weatherList = WeatherSettings.weatherChecker(52.52, 13.41);
-
-        System.out.println(weatherList);
-
-    }
-
     //The conglomerate method is used below to grab all information and transform the data into seven-days
     // instead of 24 hour periods (168 hours total).
 
