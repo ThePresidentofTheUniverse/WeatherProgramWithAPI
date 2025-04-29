@@ -7,8 +7,6 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
-import java.util.Scanner;
-
 
 public class ZipToCountry {
 
@@ -48,12 +46,10 @@ public class ZipToCountry {
                     zipList[2] = jsonResponse.getString("country"); //country
                    zipList[3] = jsonResponse.getJSONArray("places").getJSONObject(0).getString("place name"); //city
                 }
-            } catch (ProtocolException e) {
-                throw new RuntimeException(e);
-            } catch (MalformedURLException e) {
-                throw new RuntimeException(e);
             } catch (IOException e) {
                 throw new RuntimeException(e);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
             }
 
             return zipList;
