@@ -144,18 +144,83 @@ public class WeatherSettings {
 
         //wind speed
         index = 0; //resets index
+        setAverage = 0; //resets average;
+        for (double d : rawWindSpeed) {
+
+            setAverage += d;
+
+            if (index % 24 == 0 && index != 0 || index == 167) {
+                avgWindSpeed[sevenDayIndex] = Math.round((setAverage / 24) * 100.0) / 100.0 ;
+                sevenDayIndex++;
+                setAverage = 0 + d;
+            }
+            index++;
+
+        }
 
         //snow fall
         index = 0; //resets index
+        setAverage = 0; //resets average;
+        for (double d : rawSnow) {
+
+            setAverage += d;
+
+            if (index % 24 == 0 && index != 0 || index == 167) {
+                avgSnow[sevenDayIndex] = Math.round((setAverage / 24) * 100.0) / 100.0 ;
+                sevenDayIndex++;
+                setAverage = 0 + d;
+            }
+            index++;
+
+        }
 
         //showers
         index = 0; //resets index
+        setAverage = 0; //resets average;
+        for (double d : rawShowers) {
+
+            setAverage += d;
+
+            if (index % 24 == 0 && index != 0 || index == 167) {
+                avgShowers[sevenDayIndex] = Math.round((setAverage / 24) * 100.0) / 100.0 ;
+                sevenDayIndex++;
+                setAverage = 0 + d;
+            }
+            index++;
+
+        }
 
         //rain
         index = 0; //resets index
+        setAverage = 0; //resets average;
+        for (double d : rawRain) {
+
+            setAverage += d;
+
+            if (index % 24 == 0 && index != 0 || index == 167) {
+                avgRain[sevenDayIndex] = Math.round((setAverage / 24) * 100.0) / 100.0 ;
+                sevenDayIndex++;
+                setAverage = 0 + d;
+            }
+            index++;
+
+        }
 
         //wind direction
         index = 0; //resets index
+        setAverage = 0; //resets average;
+        for (double d : rawWindDirect) {
+
+            setAverage += d;
+
+            if (index % 24 == 0 && index != 0 || index == 167) {
+                avgWindDirect[sevenDayIndex] = Math.round((setAverage / 24) * 100.0) / 100.0 ;
+                sevenDayIndex++;
+                setAverage = 0 + d;
+            }
+            index++;
+
+        }
 
 
 
