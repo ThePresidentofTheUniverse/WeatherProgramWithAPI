@@ -52,6 +52,7 @@ public class WeatherSettings {
         String[] avgWindDirect = new String[7];
 
         //Converts all data into one, massive string, that is joined together by both pipes and slashes, has to be done this way as Java only allows one return value.
+        String[] allInformation2 = new String[42]; //Testing to see if I can just pass it over as an array of Strings instead.
         String allInformation = "";
 
         try { //big try-catch statement that grabs a LOT of data.
@@ -241,6 +242,17 @@ public class WeatherSettings {
 
 
         //This is the part that converts the data into the massive string, so it can be returned, because Java is not able to return multiple values.
+        index = 0;
+        sevenDayIndex = 0;
+        for (int i = 0; i < index; i++){
+
+            switch (sevenDayIndex){
+
+                case 1:
+
+            }
+        }
+
         allInformation = String.join("|" ,String.join("/", avgTemp), String.join("/",avgWindSpeed), String.join("/", avgSnow), String.join("/",avgShowers), String.join("/", avgRain), String.join("/", avgWindDirect));
 
       return allInformation;

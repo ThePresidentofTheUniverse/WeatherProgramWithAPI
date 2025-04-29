@@ -15,7 +15,6 @@ public class WeatherDriver {
 
     public static void main(String[] args) {
 
-
         //Asks for user input
         Scanner scan = new Scanner(System.in);
         System.out.print("Please enter the initials of a country: ");
@@ -40,9 +39,7 @@ public class WeatherDriver {
 
         System.out.println(weatherList);
 
-
-
-        //TODO set up the wind compass converter. Also find a way to split the massive string.
+        //TODO find a way to split the massive string.
 
     }
 }
