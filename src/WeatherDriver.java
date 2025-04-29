@@ -1,4 +1,5 @@
 import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 /*----------------------------------------------------
@@ -25,6 +26,9 @@ public class WeatherDriver {
         System.out.println("What kind of temperature would you like to see your weather in?\n1 - Celsius\n2 - fahrenheit\n3 - Kelvin");
         String tempPref = scan.nextLine();
 
+        System.out.println("What unit would you like the wind speed in?\n1 - km/h\n2 - m/s\n3 - mph\n4 - Knots");
+        String speedUnit = scan.nextLine();
+
             List<String> errors = Validator.validateInput(countryInit, zipCode);
 
             if(!errors.isEmpty()){
@@ -46,7 +50,7 @@ public class WeatherDriver {
                 }
 
                 System.out.println("The weather in the format of a list: ");
-                List<String> weatherList = WeatherSettings.weatherChecker(Double.parseDouble(zipList[0]), Double.parseDouble(zipList[1]), tempPref);
+                List<String> weatherList = WeatherSettings.weatherChecker(Double.parseDouble(zipList[0]), Double.parseDouble(zipList[1]), tempPref, speedUnit);
 
                 System.out.println(weatherList);
             }

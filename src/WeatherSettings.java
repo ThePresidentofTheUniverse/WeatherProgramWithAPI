@@ -13,7 +13,7 @@ public class WeatherSettings {
     //The conglomerate method is used below to grab all information and transform the data into seven-days
     // instead of 24 hour periods (168 hours total).
 
-    public static List<String> weatherChecker (double latitude, double longitude, String tempPref){
+    public static List<String> weatherChecker (double latitude, double longitude, String tempPref, String speedUnit){
 
         // Switch statement to see if what temperature is picked.
         boolean kelvin = false;
@@ -32,6 +32,27 @@ public class WeatherSettings {
                 tempPref = "";
                 break;
         }
+
+        // Switch statement to see what wind speed unit they are going to use
+        switch (speedUnit){
+            case "1":
+                speedUnit = "";
+                break;
+            case "2":
+                speedUnit = "&wind_speed_unit=ms";
+                break;
+            case "3":
+                speedUnit = "&wind_speed_unit=mph";
+                break;
+            case "4":
+                speedUnit = "&wind_speed_unit=kn";
+                break;
+            default:
+                speedUnit = "";
+                break;
+        }
+
+        //
 
         int index = 0;
         int sevenDayIndex = 0;
@@ -57,7 +78,7 @@ public class WeatherSettings {
         List<String> allInformation = new ArrayList<>(); //Testing to see if I can just pass it over as an array of Strings instead.
 
         try { //big try-catch statement that grabs a LOT of data.
-            String apiurl = "https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longitude + "&hourly=temperature_2m,wind_speed_10m,snowfall,showers,rain,wind_direction_10m" + tempPref; //The URL
+            String apiurl = "https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longitude + "&hourly=temperature_2m,wind_speed_10m,snowfall,showers,rain,wind_direction_10m"+ speedUnit + tempPref; //The URL
             URL url = new URL (apiurl);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
