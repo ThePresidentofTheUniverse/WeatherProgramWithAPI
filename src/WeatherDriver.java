@@ -1,3 +1,4 @@
+import java.util.List;
 import java.util.Scanner;
 
 /*----------------------------------------------------
@@ -34,8 +35,8 @@ public class WeatherDriver {
             index++;
         }
 
-        System.out.println("The weather in massive string format: ");
-        String weatherList = WeatherSettings.weatherChecker(Double.parseDouble(zipList[0]), Double.parseDouble(zipList[1]), tempPref);
+        System.out.println("The weather in the format of a list: ");
+        List<String> weatherList = WeatherSettings.weatherChecker(Double.parseDouble(zipList[0]), Double.parseDouble(zipList[1]), tempPref);
 
         System.out.println(weatherList);
 

@@ -5,13 +5,15 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WeatherSettings {
 
     //The conglomerate method is used below to grab all information and transform the data into seven-days
     // instead of 24 hour periods (168 hours total).
 
-    public static String weatherChecker (double latitude, double longitude, String tempPref){
+    public static List<String> weatherChecker (double latitude, double longitude, String tempPref){
 
         // Switch statement to see if what temperature is picked.
         boolean kelvin = false;
@@ -52,8 +54,7 @@ public class WeatherSettings {
         String[] avgWindDirect = new String[7];
 
         //Converts all data into one, massive string, that is joined together by both pipes and slashes, has to be done this way as Java only allows one return value.
-        String[] allInformation2 = new String[42]; //Testing to see if I can just pass it over as an array of Strings instead.
-        String allInformation = "";
+        List<String> allInformation = new ArrayList<>(); //Testing to see if I can just pass it over as an array of Strings instead.
 
         try { //big try-catch statement that grabs a LOT of data.
             String apiurl = "https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longitude + "&hourly=temperature_2m,wind_speed_10m,snowfall,showers,rain,wind_direction_10m" + tempPref; //The URL
@@ -242,18 +243,20 @@ public class WeatherSettings {
 
 
         //This is the part that converts the data into the massive string, so it can be returned, because Java is not able to return multiple values.
-        index = 0;
-        sevenDayIndex = 0;
-        for (int i = 0; i < index; i++){
 
-            switch (sevenDayIndex){
-
-                case 1:
-
-            }
+        for(int i = 0; i < avgTemp.length; i++) {
+            allInformation.add("Day: " + i);
+            allInformation.add("Temperture: " + avgTemp[i]);
+            allInformation.add("Wind Speed: " + avgWindSpeed[i]);
+            allInformation.add("Direction of wind: " + avgWindDirect[i]);
+            allInformation.add("Chance of Snow: " + avgSnow[i]);
+            allInformation.add("Chance of showers: " + avgShowers[i]);
+            allInformation.add("Chance of rain: " + avgRain[i]);
+            allInformation.add("\n\n");
         }
 
-        allInformation = String.join("|" ,String.join("/", avgTemp), String.join("/",avgWindSpeed), String.join("/", avgSnow), String.join("/",avgShowers), String.join("/", avgRain), String.join("/", avgWindDirect));
+
+        //allInformation = String.join("|" ,String.join("/", avgTemp), String.join("/",avgWindSpeed), String.join("/", avgSnow), String.join("/",avgShowers), String.join("/", avgRain), String.join("/", avgWindDirect));
 
       return allInformation;
     }
