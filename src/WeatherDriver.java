@@ -22,11 +22,10 @@ public class WeatherDriver {
         String countryInit = scan.nextLine();
         System.out.print("Please enter the desired zip code: ");
         String zipCode = scan.nextLine();
+        System.out.println("What kind of temperature would you like to see your weather in?\n1 - Celsius\n2 - fahrenheit\n3 - Kelvin");
+        String tempPref = scan.nextLine();
 
         String[] zipList = ZipToCountry.CountryZipCode(countryInit, zipCode);
-
-        System.out.println("What kind of temperature would you like to see your weather in?\n1 - Celsius\n2 - Farienhiet\n3 - Kelvin");
-        String tempPref = scan.nextLine();
 
         int index = 0;
         for (String s : zipList){
@@ -37,11 +36,13 @@ public class WeatherDriver {
         }
 
         System.out.println("The weather in massive string format: ");
-        String weatherList = WeatherSettings.weatherChecker(Double.parseDouble(zipList[0]), Double.parseDouble(zipList[1]));
+        String weatherList = WeatherSettings.weatherChecker(Double.parseDouble(zipList[0]), Double.parseDouble(zipList[1]), tempPref);
 
         System.out.println(weatherList);
 
-        //TODO set up the temp converter and the wind compass converter. Also find a way to split the massive string.
+
+
+        //TODO set up the wind compass converter. Also find a way to split the massive string.
 
     }
 }

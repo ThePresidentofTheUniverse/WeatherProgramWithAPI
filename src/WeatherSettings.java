@@ -11,7 +11,25 @@ public class WeatherSettings {
     //The conglomerate method is used below to grab all information and transform the data into seven-days
     // instead of 24 hour periods (168 hours total).
 
-    public static String weatherChecker (double latitude, double longitude){
+    public static String weatherChecker (double latitude, double longitude, String tempPref){
+
+        // Switch statement to see if what temperature is picked.
+        boolean kelvin = false;
+        switch (tempPref){
+            case "1":
+                tempPref = "";
+                break;
+            case "2":
+                tempPref = "&temperature_unit=fahrenheit";
+                break;
+            case "3":
+                tempPref = "";
+                kelvin = true;
+                break;
+            default:
+                tempPref = "";
+                break;
+        }
 
         int index = 0;
         int sevenDayIndex = 0;
@@ -37,7 +55,7 @@ public class WeatherSettings {
         String allInformation = "";
 
         try { //big try-catch statement that grabs a LOT of data.
-            String apiurl = "https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longitude + "&hourly=temperature_2m,wind_speed_10m,snowfall,showers,rain,wind_direction_10m&temperature_unit=fahrenheit"; //The URL
+            String apiurl = "https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longitude + "&hourly=temperature_2m,wind_speed_10m,snowfall,showers,rain,wind_direction_10m" + tempPref; //The URL
             URL url = new URL (apiurl);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
@@ -122,7 +140,11 @@ public class WeatherSettings {
         //Temperature
         for (double d : rawTemp) {
 
-            setAverage += d;
+            if (kelvin == true){ //Checks to see if temperature needs to be converted
+                setAverage += KelvinConverter.Conversion(d);
+            }else {
+                setAverage += d;
+            }
 
             if (index % 24 == 0 && index != 0 || index == 167) {
                 avgTemp[sevenDayIndex] = Double.toString(Math.round((setAverage / 24) * 100.0) / 100.0) ;
