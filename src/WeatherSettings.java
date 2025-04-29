@@ -12,6 +12,8 @@ public class WeatherSettings {
 
         String weatherList = WeatherSettings.weatherChecker(52.52, 13.41);
 
+        System.out.println(weatherList);
+
     }
 
     //The conglomerate method is used below to grab all information and transform the data into seven-days
@@ -32,15 +34,14 @@ public class WeatherSettings {
 
         //All compiled data, merged into seven day forecasts, thankfully, the API always starts at 00:00 for time.
         double setAverage = 0; //Storage fo chopping up raw data.
-        double[] avgTemp = new double[7];
-        double[] avgWindSpeed = new double[7];
-        double[] avgSnow = new double[7];
-        double[] avgShowers = new double[7];
-        double[] avgRain = new double[7];
-        double[] avgWindDirect = new double[7];
+        String[] avgTemp = new String[7];
+        String[] avgWindSpeed = new String[7];
+        String[] avgSnow = new String[7];
+        String[] avgShowers = new String[7];
+        String[] avgRain = new String[7];
+        String[] avgWindDirect = new String[7];
 
         //Converts all data into one, massive string, that is joined together by both pipes and slashes, has to be done this way as Java only allows one return value.
-        String convertToString;
         String allInformation = "";
 
         try { //big try-catch statement that grabs a LOT of data.
@@ -132,23 +133,23 @@ public class WeatherSettings {
             setAverage += d;
 
             if (index % 24 == 0 && index != 0 || index == 167) {
-                avgTemp[sevenDayIndex] = Math.round((setAverage / 24) * 100.0) / 100.0 ;
+                avgTemp[sevenDayIndex] = Double.toString(Math.round((setAverage / 24) * 100.0) / 100.0) ;
                sevenDayIndex++;
                setAverage = 0 + d;
             }
             index++;
 
         }
-
         //wind speed
-        index = 0; //resets index
+           index = 0; //resets index
         setAverage = 0; //resets average;
+        sevenDayIndex = 0; //resets seven day index.
         for (double d : rawWindSpeed) {
 
             setAverage += d;
 
             if (index % 24 == 0 && index != 0 || index == 167) {
-                avgWindSpeed[sevenDayIndex] = Math.round((setAverage / 24) * 100.0) / 100.0 ;
+                avgWindSpeed[sevenDayIndex] = Double.toString(Math.round((setAverage / 24) * 100.0) / 100.0) ;
                 sevenDayIndex++;
                 setAverage = 0 + d;
             }
@@ -159,12 +160,13 @@ public class WeatherSettings {
         //snow fall
         index = 0; //resets index
         setAverage = 0; //resets average;
+        sevenDayIndex = 0; //resets seven day index.
         for (double d : rawSnow) {
 
             setAverage += d;
 
             if (index % 24 == 0 && index != 0 || index == 167) {
-                avgSnow[sevenDayIndex] = Math.round((setAverage / 24) * 100.0) / 100.0 ;
+                avgSnow[sevenDayIndex] = Double.toString(Math.round((setAverage / 24) * 100.0) / 100.0) ;
                 sevenDayIndex++;
                 setAverage = 0 + d;
             }
@@ -175,12 +177,13 @@ public class WeatherSettings {
         //showers
         index = 0; //resets index
         setAverage = 0; //resets average;
+        sevenDayIndex = 0; //resets seven day index.
         for (double d : rawShowers) {
 
             setAverage += d;
 
             if (index % 24 == 0 && index != 0 || index == 167) {
-                avgShowers[sevenDayIndex] = Math.round((setAverage / 24) * 100.0) / 100.0 ;
+                avgShowers[sevenDayIndex] = Double.toString(Math.round((setAverage / 24) * 100.0) / 100.0) ;
                 sevenDayIndex++;
                 setAverage = 0 + d;
             }
@@ -191,12 +194,13 @@ public class WeatherSettings {
         //rain
         index = 0; //resets index
         setAverage = 0; //resets average;
+        sevenDayIndex = 0; //resets seven day index.
         for (double d : rawRain) {
 
             setAverage += d;
 
             if (index % 24 == 0 && index != 0 || index == 167) {
-                avgRain[sevenDayIndex] = Math.round((setAverage / 24) * 100.0) / 100.0 ;
+                avgRain[sevenDayIndex] = Double.toString(Math.round((setAverage / 24) * 100.0) / 100.0) ;
                 sevenDayIndex++;
                 setAverage = 0 + d;
             }
@@ -207,12 +211,13 @@ public class WeatherSettings {
         //wind direction
         index = 0; //resets index
         setAverage = 0; //resets average;
+        sevenDayIndex = 0; //resets seven day index.
         for (double d : rawWindDirect) {
 
             setAverage += d;
 
             if (index % 24 == 0 && index != 0 || index == 167) {
-                avgWindDirect[sevenDayIndex] = Math.round((setAverage / 24) * 100.0) / 100.0 ;
+                avgWindDirect[sevenDayIndex] = Double.toString(Math.round((setAverage / 24) * 100.0) / 100.0) ;
                 sevenDayIndex++;
                 setAverage = 0 + d;
             }
@@ -222,8 +227,7 @@ public class WeatherSettings {
 
 
         //This is the part that converts the data into the massive string, so it can be returned, because Java is not able to return multiple values.
-
-
+        allInformation = String.join("|" ,String.join("/", avgTemp), String.join("/",avgWindSpeed), String.join("/", avgSnow), String.join("/",avgShowers), String.join("/", avgRain), String.join("/", avgWindDirect));
 
       return allInformation;
     }
