@@ -231,7 +231,7 @@ public class WeatherSettings {
             setAverage += d;
 
             if (index % 24 == 0 && index != 0 || index == 167) {
-                avgWindDirect[sevenDayIndex] = Double.toString(Math.round((setAverage / 24) * 100.0) / 100.0) ;
+                avgWindDirect[sevenDayIndex] = CompassDirections.DirectionConverter(Math.round((setAverage / 24) * 100.0) / 100.0);
                 sevenDayIndex++;
                 setAverage = 0 + d;
             }
