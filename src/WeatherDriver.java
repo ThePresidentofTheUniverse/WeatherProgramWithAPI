@@ -19,9 +19,9 @@ public class WeatherDriver {
         //Asks for user input
         Scanner scan = new Scanner(System.in);
         System.out.print("Please enter the initials of a country: ");
-        String countryInit = scan.nextLine();
+        String countryInit = scan.nextLine().trim().toLowerCase();
         System.out.print("Please enter the desired zip code: ");
-        String zipCode = scan.nextLine();
+        String zipCode = scan.nextLine(); //Needs to be string because of some countries.
         System.out.println("What kind of temperature would you like to see your weather in?\n1 - Celsius\n2 - fahrenheit\n3 - Kelvin");
         String tempPref = scan.nextLine();
 
