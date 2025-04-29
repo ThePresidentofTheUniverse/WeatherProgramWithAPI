@@ -45,6 +45,9 @@ public class WeatherSettings {
         double[] avgRain = new double[7];
         double[] avgWindDirect = new double[7];
 
+        //Converts all data into one, massive string, that is joined together by both pipes and slashes, has to be done this way as Java only allows one return value.
+        String allInformation = "";
+
         try { //big try-catch statement that grabs a LOT of data.
             String apiurl = "https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longitude + "&hourly=temperature_2m,wind_speed_10m,snowfall,showers,rain,wind_direction_10m&temperature_unit=fahrenheit"; //The URL
             URL url = new URL (apiurl);
