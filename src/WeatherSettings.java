@@ -22,7 +22,8 @@ public class WeatherSettings {
 
     }
 
-    //Several methods are used below to get each type of data and put them into arrays.
+    //The conglomerate method is used below to grab all information and transform the data into seven-days
+    // instead of 24 hour periods (168 hours total).
 
     public static double[] weatherChecker (double latitude, double longitude){
 
