@@ -40,7 +40,5 @@ public class WeatherDriver {
 
         System.out.println(weatherList);
 
-        //TODO find a way to split the massive string.
-
     }
 }
