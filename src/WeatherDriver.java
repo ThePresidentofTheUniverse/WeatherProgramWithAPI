@@ -38,5 +38,7 @@ public class WeatherDriver {
 
         System.out.println(weatherList);
 
+        //TODO set up the temp converter and the wind compass converter. Also find a way to split the massive string.
+
     }
 }
