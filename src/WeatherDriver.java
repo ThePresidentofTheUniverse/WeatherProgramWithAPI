@@ -25,6 +25,9 @@ public class WeatherDriver {
 
         String[] zipList = ZipToCountry.CountryZipCode(countryInit, zipCode);
 
+        System.out.println("What kind of temperature would you like to see your weather in?\n1 - Celsius\n2 - Farienhiet\n3 - Kelvin");
+        String tempPref = scan.nextLine();
+
         int index = 0;
         for (String s : zipList){
             // Conditional statements are wonderful. I enjoy using them for formating
