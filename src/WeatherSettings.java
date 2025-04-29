@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
 
 public class WeatherSettings {
@@ -28,18 +26,27 @@ public class WeatherSettings {
     public static double[] weatherChecker (double latitude, double longitude){
 
         int index = 0;
-        //All raw items below, instead of using hourly forecast, I want to do seven, day forecasts.
-        double[] rawTemp = new double[167];
-        double[] rawWindSpeed = new double[167];
-        double[] rawSnow = new double[167];
-        double[] rawShowers = new double[167];
-        double[] rawRain = new double[167];
-        double[] rawWindDirect = new double[167];
+        int sevenDayIndex = 0;
 
-        //All compiled data, merged into seven day forecasts
+        //All raw items below, instead of using hourly forecast, I want to do seven, day forecasts.
+        double[] rawTemp = new double[168];
+        double[] rawWindSpeed = new double[168];
+        double[] rawSnow = new double[168];
+        double[] rawShowers = new double[168];
+        double[] rawRain = new double[168];
+        double[] rawWindDirect = new double[168]; //Wind direction will be converted into compass form later.
+
+        //All compiled data, merged into seven day forecasts, thankfully, the API always starts at 00:00 for time.
+        double setAverage = 0; //Storage fo chopping up raw data.
+        double[] avgTemp = new double[7];
+        double[] avgWindSpeed = new double[7];
+        double[] avgSnow = new double[7];
+        double[] avgShowers = new double[7];
+        double[] avgRain = new double[7];
+        double[] avgWindDirect = new double[7];
 
         try { //big try-catch statement that grabs a LOT of data.
-            String apiurl = "https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longitude + "&hourly=temperature_2m,wind_speed_10m,snowfall,showers,rain,wind_direction_10m"; //The URL
+            String apiurl = "https://api.open-meteo.com/v1/forecast?latitude=" + latitude + "&longitude=" + longitude + "&hourly=temperature_2m,wind_speed_10m,snowfall,showers,rain,wind_direction_10m&temperature_unit=fahrenheit"; //The URL
             URL url = new URL (apiurl);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
@@ -117,7 +124,42 @@ public class WeatherSettings {
             throw new RuntimeException(e);
         }
 
+        //168 divided by 24 is 7.
+        //A lot more for loops to get the information parsed
+        // index % 24 == 0
 
-      return;
+        //Temperature
+        for (double d : rawTemp) {
+
+            setAverage += d;
+
+            if (index % 24 == 0 && index != 0 || index == 167) {
+                avgTemp[sevenDayIndex] = Math.round((setAverage / 24) * 100.0) / 100.0 ;
+               sevenDayIndex++;
+               setAverage = 0 + d;
+            }
+            index++;
+
+        }
+
+        //wind speed
+        index = 0; //resets index
+
+        //snow fall
+        index = 0; //resets index
+
+        //showers
+        index = 0; //resets index
+
+        //rain
+        index = 0; //resets index
+
+        //wind direction
+        index = 0; //resets index
+
+
+
+
+      return avgTemp;
     }
 }
