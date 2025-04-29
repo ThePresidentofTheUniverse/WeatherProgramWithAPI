@@ -10,20 +10,14 @@ public class WeatherSettings {
 
     public static void main(String[] args) { //for testing purposes
 
-        double[] weatherList = WeatherSettings.weatherChecker(52.52, 13.41);
-
-        int index = 0;
-        for (Double d : weatherList){
-            System.out.println(index +": " + weatherList[index]);
-            index++;
-        }
+        String weatherList = WeatherSettings.weatherChecker(52.52, 13.41);
 
     }
 
     //The conglomerate method is used below to grab all information and transform the data into seven-days
     // instead of 24 hour periods (168 hours total).
 
-    public static double[] weatherChecker (double latitude, double longitude){
+    public static String weatherChecker (double latitude, double longitude){
 
         int index = 0;
         int sevenDayIndex = 0;
@@ -46,6 +40,7 @@ public class WeatherSettings {
         double[] avgWindDirect = new double[7];
 
         //Converts all data into one, massive string, that is joined together by both pipes and slashes, has to be done this way as Java only allows one return value.
+        String convertToString;
         String allInformation = "";
 
         try { //big try-catch statement that grabs a LOT of data.
@@ -226,8 +221,10 @@ public class WeatherSettings {
         }
 
 
+        //This is the part that converts the data into the massive string, so it can be returned, because Java is not able to return multiple values.
 
 
-      return avgTemp;
+
+      return allInformation;
     }
 }
