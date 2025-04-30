@@ -87,11 +87,29 @@ public class WeatherController implements Initializable {
             System.out.println(country);
             //Validates user input
             List<String> errors = Validator.validateInput(country, zipCode);
-            if (!errors.isEmpty()){ //Basic error outputter.
+            if (!errors.isEmpty()){ //Outputs error to both the console and the program, allowing users to understand that the information is not valid.
                 System.out.println("Something was incorrect with the data you inputted, please check below for more information: ");
+                int errorCount = 0;
                 for (String error: errors){
-                    System.out.println(" - " + error + " ");
+                    System.out.println(error);
+                    lblError.setText("An error has occurred, please check list below for more information:");
+                    switch (errorCount){
+
+                        case 1:
+                            lblError1.setText(error);
+                            break;
+                        case 2:
+                            lblError2.setText(error);
+                            break;
+                        case 3:
+                            lblError3.setText(error);
+                            break;
+                    }
+                    errorCount++;
                 }
+
+
+
             } else { //Grabs data and sends it out.
                 String[] zipList = ZipToCountry.CountryZipCode(country, zipCode);
                 //Grabs the current day and next six days
