@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.net.URL;
@@ -156,6 +157,13 @@ public class WeatherController implements Initializable {
                 lblCityName.setText(zipList[3]);
                 lblLatitudeCoord.setText(zipList[0]);
                 lblLongCoord.setText(zipList[1]);
+
+                //Switches Picture to the country that was inputted.
+                    String urlImage = "Images\\" + zipList[2] + ".png";
+                    Image imageCountry = new Image(urlImage);
+                    imgCountry.setImage(imageCountry);
+
+
 
                lblError.setText(""); //Clears any previous errors shown.
                lblError1.setText("");
