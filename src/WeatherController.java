@@ -42,7 +42,7 @@ public class WeatherController implements Initializable {
 
             System.out.println(country);
             //Validates user input
-            //Validator.validateInput()
+            Validator.validateInput(country, zipCode);
         } catch (Exception e){
             System.out.println(e);
         }
