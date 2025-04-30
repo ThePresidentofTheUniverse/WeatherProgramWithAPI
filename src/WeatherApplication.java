@@ -19,7 +19,7 @@ public class WeatherApplication extends Application{
         stage.setResizable(false);
         stage.setTitle("Your world-wide Weather Checker");
         stage.getIcons().add(new Image("Images/CloudIcon.png"));
-        stage.setScene(new Scene(root, 800, 600));
+        stage.setScene(new Scene(root, 800, 445));
         stage.show();
     }
 }

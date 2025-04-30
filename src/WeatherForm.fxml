@@ -6,9 +6,11 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="435.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WeatherController">
+<AnchorPane prefHeight="444.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WeatherController">
    <children>
       <Label fx:id="lblCountry" layoutX="15.0" layoutY="14.0" text="Country" />
       <ComboBox fx:id="cmbCountry" layoutX="14.0" layoutY="31.0" prefHeight="25.0" prefWidth="176.0" promptText="please select a country..." />
@@ -30,5 +32,9 @@
             <TableColumn fx:id="colDay6" editable="false" minWidth="6.0" prefWidth="71.0" resizable="false" text="Showers" />
         </columns>
       </TableView>
+      <ImageView fx:id="imgCountry" fitHeight="200.0" fitWidth="200.0" layoutX="594.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Images/EarthFromSpaceSquare.PNG" />
+         </image></ImageView>
    </children>
 </AnchorPane>
