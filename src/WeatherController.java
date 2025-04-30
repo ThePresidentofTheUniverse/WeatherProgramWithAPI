@@ -85,15 +85,13 @@ public class WeatherController implements Initializable {
                 System.out.println("Today: ");
                 today.weatherData();
 
-                //Allows columns to function in the table
+                //Allows columns to function in the table, they must have the same names as the getters.
                 colInformation.setCellValueFactory(new PropertyValueFactory<Weather, String>("Temp"));
                 colDay1.setCellValueFactory(new PropertyValueFactory<Weather, String>("WindDirection"));
                 colDay2.setCellValueFactory(new PropertyValueFactory<Weather, String>("WindSpeed"));
                 colDay3.setCellValueFactory(new PropertyValueFactory<Weather, String>("Rain"));
                 colDay4.setCellValueFactory(new PropertyValueFactory<Weather, String>("SnowFall"));
                 colDay5.setCellValueFactory(new PropertyValueFactory<Weather, String>("Showers"));
-                //colDay6.setCellValueFactory(new PropertyValueFactory<Weather, String>("Day 6"));
-                //colDay7.setCellValueFactory(new PropertyValueFactory<Weather, String>("Day 7"));
 
                 tblWeeklyWeather.setItems(getWeather(weatherList)); //Adds information of weather
             }
