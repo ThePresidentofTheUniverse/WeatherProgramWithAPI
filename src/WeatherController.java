@@ -30,7 +30,6 @@ public class WeatherController implements Initializable {
     public TableColumn<Weather, String> colDay4;
     public TableColumn<Weather, String> colDay5;
     public TableColumn<Weather, String> colDay6;
-    public TableColumn<Weather, String> colDay7;
 
     //Adds information to the combo boxes, perfect for controlling user input
     @Override
@@ -62,10 +61,21 @@ public class WeatherController implements Initializable {
     @FXML
     void checkingWeather(){
         try{
+            //Sets the default values if left empty.
+            String tempUnit = "Celsius";
+            String windSpeed = "km/h";
+
+            //Grabs the new values inputted
             String country = nameRemover(cmbCountry.getValue());
             String zipCode = txtZipCode.getText().trim();
-            String tempUnit = cmbTempUnit.getValue();
-            String windSpeed = cmbWindSpeed.getValue();
+            //Checks to see if the values are null or not
+            if (cmbTempUnit.getValue() != null) {
+                tempUnit = cmbTempUnit.getValue();
+            }
+            if (cmbWindSpeed.getValue() != null) {
+                windSpeed = cmbWindSpeed.getValue();
+            }
+
 
             System.out.println(country);
             //Validates user input
@@ -77,26 +87,31 @@ public class WeatherController implements Initializable {
                 }
             } else { //Grabs data and sends it out.
                 String[] zipList = ZipToCountry.CountryZipCode(country, zipCode);
+                //Grabs the current day and next six days
+                String[] dates;
+                dates = SevenDayDatesGrabber.dateFinder();
 
                 List<String> weatherList = WeatherSettings.weatherChecker(Double.parseDouble(zipList[0]), Double.parseDouble(zipList[1]), tempUnit, windSpeed);
-                WeatherInterface today = new Weather(weatherList.get(0), weatherList.get(1), weatherList.get(2), weatherList.get(3), weatherList.get(4), weatherList.get(5));
+                WeatherInterface today = new Weather(weatherList.get(0), weatherList.get(1), weatherList.get(2), weatherList.get(3), weatherList.get(4), weatherList.get(5), );
 
                 // Makes sure that information is out putted correctly.
-                System.out.println("Today: ");
                 today.weatherData();
 
                 //Allows columns to function in the table, they must have the same names as the getters.
-                colInformation.setCellValueFactory(new PropertyValueFactory<Weather, String>("Temp"));
-                colDay1.setCellValueFactory(new PropertyValueFactory<Weather, String>("WindDirection"));
-                colDay2.setCellValueFactory(new PropertyValueFactory<Weather, String>("WindSpeed"));
-                colDay3.setCellValueFactory(new PropertyValueFactory<Weather, String>("Rain"));
-                colDay4.setCellValueFactory(new PropertyValueFactory<Weather, String>("SnowFall"));
-                colDay5.setCellValueFactory(new PropertyValueFactory<Weather, String>("Showers"));
+                colInformation.setCellValueFactory(new PropertyValueFactory<>());
+                colDay1.setCellValueFactory(new PropertyValueFactory<Weather, String>("Temp"));
+                colDay2.setCellValueFactory(new PropertyValueFactory<Weather, String>("WindDirection"));
+                colDay3.setCellValueFactory(new PropertyValueFactory<Weather, String>("WindSpeed"));
+                colDay4.setCellValueFactory(new PropertyValueFactory<Weather, String>("Rain"));
+                colDay5.setCellValueFactory(new PropertyValueFactory<Weather, String>("SnowFall"));
+                colDay6.setCellValueFactory(new PropertyValueFactory<Weather, String>("Showers"));
+
 
                 tblWeeklyWeather.setItems(getWeather(weatherList)); //Adds information of weather
             }
         } catch (Exception e){
             System.out.println(e);
+
         }
     }
 
@@ -105,7 +120,7 @@ public class WeatherController implements Initializable {
 
         StringBuilder result = new StringBuilder();
 
-        Pattern pattern = Pattern.compile("\\([A-Z]{2}\\)");
+        Pattern pattern = Pattern.compile("\\([A-Z]{2}\\)"); //God, I love regex.
         Matcher matcher = pattern.matcher(input);
 
         while (matcher.find()) {

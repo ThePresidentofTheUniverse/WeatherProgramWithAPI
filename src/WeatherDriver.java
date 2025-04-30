@@ -51,7 +51,7 @@ public class WeatherDriver {
                 List<String> weatherList = WeatherSettings.weatherChecker(Double.parseDouble(zipList[0]), Double.parseDouble(zipList[1]), tempPref, speedUnit);
 
                 //Hastily put together because I forgot to add the interface AND the class.
-               WeatherInterface today = new Weather(weatherList.get(0), weatherList.get(1), weatherList.get(2), weatherList.get(3), weatherList.get(4), weatherList.get(5));
+               WeatherInterface  day1 = new Weather(weatherList.get(0), weatherList.get(1), weatherList.get(2), weatherList.get(3), weatherList.get(4), weatherList.get(5));
                 WeatherInterface day2 = new Weather(weatherList.get(6), weatherList.get(7), weatherList.get(8), weatherList.get(9), weatherList.get(10), weatherList.get(11));
                 WeatherInterface day3 = new Weather(weatherList.get(12), weatherList.get(13), weatherList.get(14), weatherList.get(15), weatherList.get(16), weatherList.get(17));
                 WeatherInterface day4 = new Weather(weatherList.get(18), weatherList.get(19), weatherList.get(20), weatherList.get(21), weatherList.get(22), weatherList.get(23));
@@ -59,26 +59,42 @@ public class WeatherDriver {
                 WeatherInterface day6 = new Weather(weatherList.get(30), weatherList.get(31), weatherList.get(32), weatherList.get(33), weatherList.get(34), weatherList.get(35));
                 WeatherInterface day7 = new Weather(weatherList.get(36), weatherList.get(37), weatherList.get(38), weatherList.get(39), weatherList.get(40), weatherList.get(41));
 
-                System.out.println("Today: ");
-                today.weatherData();
+                //Grabs the current day and next six days
+                String[] dates;
+                dates = SevenDayDatesGrabber.dateFinder();
 
-                System.out.println("Day 2: ");
-                day2.weatherData();
+                index = 1; // resets index to 1
+                for (String date : dates){
+                    System.out.println(date);
 
-                System.out.println("Day 3: ");
-                day3.weatherData();
+                    switch (index){
 
-                System.out.println("Day 4: ");
-                day4.weatherData();
-
-                System.out.println("Day 5: ");
-                day5.weatherData();
-
-                System.out.println("Day 6: ");
-                day6.weatherData();
-
-                System.out.println("Day 7: ");
-                day7.weatherData();
+                        case 1:
+                            day1.weatherData();
+                            break;
+                        case 2:
+                            day2.weatherData();
+                            break;
+                        case 3:
+                            day3.weatherData();
+                            break;
+                        case 4:
+                            day4.weatherData();
+                            break;
+                        case 5:
+                            day5.weatherData();
+                            break;
+                        case 6:
+                            day6.weatherData();
+                            break;
+                        case 7:
+                            day7.weatherData();
+                        default:
+                            day1.weatherData();
+                    }
+                    System.out.println("\n");
+                    index++;
+                }
             }
     }
 }

@@ -52,8 +52,6 @@ public class WeatherSettings {
                 break;
         }
 
-        //
-
         int index = 0;
         int sevenDayIndex = 0;
 
