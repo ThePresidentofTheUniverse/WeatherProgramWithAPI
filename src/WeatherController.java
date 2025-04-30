@@ -7,12 +7,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
-
-import java.io.File;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
