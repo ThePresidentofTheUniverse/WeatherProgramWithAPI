@@ -92,7 +92,6 @@ public class WeatherController implements Initializable {
                 WeatherInterface today = new Weather(weatherList.get(0), weatherList.get(1), weatherList.get(2), weatherList.get(3), weatherList.get(4), weatherList.get(5));
 
                 // Makes sure that information is out putted correctly.
-                System.out.println("Today: ");
                 today.weatherData();
 
                 //Allows columns to function in the table, they must have the same names as the getters.
@@ -116,7 +115,7 @@ public class WeatherController implements Initializable {
 
         StringBuilder result = new StringBuilder();
 
-        Pattern pattern = Pattern.compile("\\([A-Z]{2}\\)");
+        Pattern pattern = Pattern.compile("\\([A-Z]{2}\\)"); //God, I love regex.
         Matcher matcher = pattern.matcher(input);
 
         while (matcher.find()) {
