@@ -9,6 +9,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="444.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WeatherController">
    <children>
@@ -49,6 +50,6 @@
       <Label fx:id="lblCityName" layoutX="279.0" layoutY="255.0" />
       <Label fx:id="lblLatitudeCoord" layoutX="279.0" layoutY="276.0" />
       <Label fx:id="lblLongCoord" layoutX="279.0" layoutY="293.0" />
-      <Label fx:id="lblInformation" layoutX="211.0" layoutY="336.0" prefHeight="102.0" prefWidth="380.0" text="Label" />
+      <Text fx:id="lblInformation" layoutX="216.0" layoutY="349.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
    </children>
 </AnchorPane>

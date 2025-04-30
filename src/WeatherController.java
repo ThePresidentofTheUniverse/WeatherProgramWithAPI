@@ -7,9 +7,11 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+import java.io.File;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -166,8 +168,19 @@ public class WeatherController implements Initializable {
                     Image imageCountry = new Image(urlImage);
                     imgCountry.setImage(imageCountry);
 
+                String data = "";
+                File findFile = new File("src\\CountryInformation\\" + zipList[2]);
+                Scanner readFile = new Scanner(findFile);
+                while (readFile.hasNextLine()){
+                    data = readFile.nextLine();
+                    lblInformation.setText(data);
+                    System.out.println(data);
+
+                }
+                readFile.close();
+
                     //Grabs information from a text file, using this method
-                    lblInformation.setText(FileReader.ReadCountry(zipList[2]));
+
 
 
                     lblError.setText(""); //Clears any previous errors shown.
