@@ -36,14 +36,18 @@
          <image>
             <Image url="@Images/EarthFromSpaceSquare.PNG" />
          </image></ImageView>
-      <Label fx:id="lblCountryInfo" layoutX="217.0" layoutY="235.0" prefHeight="17.0" prefWidth="45.0" text="Country:" />
-      <Label fx:id="lblCityInfo" layoutX="217.0" layoutY="255.0" text="City:" />
-      <Label fx:id="lblLatInfo" layoutX="215.0" layoutY="276.0" text="Latitude:" />
+      <Label fx:id="lblCountryInfo" layoutX="227.0" layoutY="235.0" prefHeight="17.0" prefWidth="45.0" text="Country:" />
+      <Label fx:id="lblCityInfo" layoutX="248.0" layoutY="255.0" text="City:" />
+      <Label fx:id="lblLatInfo" layoutX="225.0" layoutY="276.0" text="Latitude:" />
       <Label fx:id="lblLongInfo" layoutX="215.0" layoutY="293.0" text="Longtiude:" />
       <Label fx:id="lblCountryInformation" layoutX="215.0" layoutY="318.0" text="Country Information:" />
       <Label fx:id="lblError" layoutX="15.0" layoutY="285.0" />
       <Label fx:id="lblError1" layoutX="15.0" layoutY="327.0" />
       <Label fx:id="lblError2" layoutX="15.0" layoutY="361.0" />
       <Label fx:id="lblError3" layoutX="15.0" layoutY="395.0" />
+      <Label fx:id="lblCountryName" layoutX="279.0" layoutY="235.0" text="Label" />
+      <Label fx:id="lblCityName" layoutX="279.0" layoutY="255.0" text="Label" />
+      <Label fx:id="lblLatitudeCoord" layoutX="279.0" layoutY="276.0" text="Label" />
+      <Label fx:id="lblLongCoord" layoutX="279.0" layoutY="293.0" text="Label" />
    </children>
 </AnchorPane>

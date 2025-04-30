@@ -138,12 +138,14 @@ public class WeatherController implements Initializable {
 
                 tblWeeklyWeather.setItems(getWeather(weatherList)); //Adds information of weather
 
+                //Adds information of location to labels.
+
                lblError.setText(""); //Clears any previous errors shown.
                lblError1.setText("");
                lblError2.setText("");
                lblError3.setText("");
             }
-        } catch (Exception e){
+        } catch (Exception e){ //A catch-all to make sure that there are no errors that I missed.
             System.out.println(e);
 
         }
