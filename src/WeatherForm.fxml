@@ -2,12 +2,19 @@
 
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WeatherController">
    <children>
-      <Label fx:id="Country" layoutX="14.0" layoutY="14.0" text="Country" />
-      <ComboBox fx:id="cmbCountry" layoutX="14.0" layoutY="31.0" prefWidth="150.0" promptText="please select a country..." />
+      <Label fx:id="lblCountry" layoutX="15.0" layoutY="14.0" text="Country" />
+      <ComboBox fx:id="cmbCountry" layoutX="14.0" layoutY="31.0" prefHeight="25.0" prefWidth="176.0" promptText="please select a country..." />
+      <Label fx:id="lblZipCode" layoutX="14.0" layoutY="77.0" text="ZipCode" />
+      <TextField fx:id="txtZipCode" layoutX="14.0" layoutY="94.0" promptText="Select a country first..." />
+      <Label fx:id="lblTempUnit" layoutX="14.0" layoutY="130.0" text="Temperature Unit" />
+      <ComboBox fx:id="cmbTempUnit" layoutX="14.0" layoutY="147.0" prefWidth="150.0" />
+      <Label fx:id="lblWindSpeed" layoutX="14.0" layoutY="183.0" text="Wind Speed Unit" />
+      <ComboBox fx:id="cmbWindSpeed" layoutX="14.0" layoutY="200.0" prefWidth="150.0" />
    </children>
 </AnchorPane>
