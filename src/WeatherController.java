@@ -89,7 +89,7 @@ public class WeatherController implements Initializable {
             List<String> errors = Validator.validateInput(country, zipCode);
             if (!errors.isEmpty()){ //Outputs error to both the console and the program, allowing users to understand that the information is not valid.
                 System.out.println("Something was incorrect with the data you inputted, please check below for more information: ");
-                int errorCount = 0;
+                int errorCount = 1;
                 for (String error: errors){
                     System.out.println(error);
                     lblError.setText("An error has occurred, please check list below for more information:");
