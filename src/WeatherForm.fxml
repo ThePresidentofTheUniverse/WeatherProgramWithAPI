@@ -49,6 +49,6 @@
       <Label fx:id="lblCityName" layoutX="279.0" layoutY="255.0" />
       <Label fx:id="lblLatitudeCoord" layoutX="279.0" layoutY="276.0" />
       <Label fx:id="lblLongCoord" layoutX="279.0" layoutY="293.0" />
-      <Label fx:id="lblInformation" layoutX="211.0" layoutY="336.0" text="Label" />
+      <Label fx:id="lblInformation" layoutX="211.0" layoutY="336.0" prefHeight="102.0" prefWidth="380.0" text="Label" />
    </children>
 </AnchorPane>
