@@ -4,7 +4,7 @@ import java.util.Date;
 public class SevenDayDatesGrabber {
 
     // Grabs today's date and the next six days also.
-    public static Calendar calendar(){
+    public static String[] dateFinder(){
 
         Calendar c = Calendar.getInstance();
         String converter;
@@ -31,9 +31,8 @@ public class SevenDayDatesGrabber {
             //System.out.println(labelDates[index]);
             index++;
 
-
         }
 
-        return c;
+        return labelDates;
     }
 }
