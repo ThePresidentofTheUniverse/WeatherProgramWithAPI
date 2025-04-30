@@ -45,6 +45,7 @@ public class WeatherController implements Initializable {
     public Label lblCityName;
     public Label lblLatitudeCoord;
     public Label lblLongCoord;
+    public Label lblInformation;
     //The error list
     public Label lblError;
     public Label lblError1;
@@ -164,6 +165,9 @@ public class WeatherController implements Initializable {
                     String urlImage = "Images\\" + zipList[2] + ".png";
                     Image imageCountry = new Image(urlImage);
                     imgCountry.setImage(imageCountry);
+
+                    //Grabs information from a text file, using this method
+                    lblInformation.setText(FileReader.ReadCountry(zipList[2]));
 
 
                     lblError.setText(""); //Clears any previous errors shown.

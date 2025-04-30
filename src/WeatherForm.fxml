@@ -45,9 +45,10 @@
       <Label fx:id="lblError1" layoutX="15.0" layoutY="327.0" />
       <Label fx:id="lblError2" layoutX="15.0" layoutY="361.0" />
       <Label fx:id="lblError3" layoutX="15.0" layoutY="395.0" />
-      <Label fx:id="lblCountryName" layoutX="279.0" layoutY="235.0" text="Label" />
-      <Label fx:id="lblCityName" layoutX="279.0" layoutY="255.0" text="Label" />
-      <Label fx:id="lblLatitudeCoord" layoutX="279.0" layoutY="276.0" text="Label" />
-      <Label fx:id="lblLongCoord" layoutX="279.0" layoutY="293.0" text="Label" />
+      <Label fx:id="lblCountryName" layoutX="279.0" layoutY="235.0" />
+      <Label fx:id="lblCityName" layoutX="279.0" layoutY="255.0" />
+      <Label fx:id="lblLatitudeCoord" layoutX="279.0" layoutY="276.0" />
+      <Label fx:id="lblLongCoord" layoutX="279.0" layoutY="293.0" />
+      <Label fx:id="lblInformation" layoutX="211.0" layoutY="336.0" text="Label" />
    </children>
 </AnchorPane>
