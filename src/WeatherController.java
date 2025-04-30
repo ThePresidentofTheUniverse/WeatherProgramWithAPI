@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 
 import java.io.File;
 import java.net.URL;
@@ -47,7 +48,7 @@ public class WeatherController implements Initializable {
     public Label lblCityName;
     public Label lblLatitudeCoord;
     public Label lblLongCoord;
-    public Label lblInformation;
+    public Text txtInformation;
     //The error list
     public Label lblError;
     public Label lblError1;
@@ -168,19 +169,10 @@ public class WeatherController implements Initializable {
                     Image imageCountry = new Image(urlImage);
                     imgCountry.setImage(imageCountry);
 
-                String data = "";
-                File findFile = new File("src\\CountryInformation\\" + zipList[2]);
-                Scanner readFile = new Scanner(findFile);
-                while (readFile.hasNextLine()){
-                    data = readFile.nextLine();
-                    lblInformation.setText(data);
-                    System.out.println(data);
 
-                }
-                readFile.close();
 
                     //Grabs information from a text file, using this method
-
+                txtInformation.setText(FileReader.ReadCountry(zipList[2]));
 
 
                     lblError.setText(""); //Clears any previous errors shown.
