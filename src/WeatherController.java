@@ -38,27 +38,24 @@ public class WeatherController implements Initializable {
         cmbCountry.setItems(FXCollections.observableArrayList("Andorra (AD)","Argentina (AR)","American Samoa (AS)", "Austria (AT)", "Australia (AU)", "Bangladesh (BD)", "Belgium (BE)", "Bulgaria (BG)", "Brazil (BR)", "Canada (CA)", "Switzerland (CH)", "United States (US)"));
         cmbTempUnit.setItems(FXCollections.observableArrayList("Celsius", "Fahrenheit", "Kelvin"));
         cmbWindSpeed.setItems(FXCollections.observableArrayList("km/h", "m/s", "mph", "Knots"));
-
-        //Allows columns to function in the table
-        colInformation.setCellValueFactory(new PropertyValueFactory<Weather, String>("Information"));
-        colDay1.setCellValueFactory(new PropertyValueFactory<Weather, String>("Day 1"));
-        colDay2.setCellValueFactory(new PropertyValueFactory<Weather, String>("Day 2"));
-        colDay3.setCellValueFactory(new PropertyValueFactory<Weather, String>("Day 3"));
-        colDay4.setCellValueFactory(new PropertyValueFactory<Weather, String>("Day 4"));
-        colDay5.setCellValueFactory(new PropertyValueFactory<Weather, String>("Day 5"));
-        colDay6.setCellValueFactory(new PropertyValueFactory<Weather, String>("Day 6"));
-        colDay7.setCellValueFactory(new PropertyValueFactory<Weather, String>("Day 7"));
-
-        tblWeeklyWeather.setItems(getWeather());
     }
 
      //A method to add information to the array list.
-    public ObservableList<Weather> getWeather(){
+    public ObservableList<Weather> getWeather(List<String> weatherList){
 
         ObservableList<Weather> weather = FXCollections.observableArrayList();
 
-        for ()
-        weather.add(new Weather());
+            //Adds the weather to the table
+            weather.add(new Weather("Temperature: ", "Wind Direction: ", "Wind Speed: ", "Rain: ", "Snowfall: ", "Showers: "));
+            weather.add(new Weather(weatherList.get(0), weatherList.get(1), weatherList.get(2), weatherList.get(3), weatherList.get(4), weatherList.get(5)));
+            weather.add(new Weather(weatherList.get(6), weatherList.get(7), weatherList.get(8), weatherList.get(9), weatherList.get(10), weatherList.get(11)));
+            weather.add(new Weather(weatherList.get(12), weatherList.get(13), weatherList.get(14), weatherList.get(15), weatherList.get(16), weatherList.get(17)));
+            weather.add(new Weather(weatherList.get(18), weatherList.get(19), weatherList.get(20), weatherList.get(21), weatherList.get(22), weatherList.get(23)));
+            weather.add(new Weather(weatherList.get(24), weatherList.get(25), weatherList.get(26), weatherList.get(27), weatherList.get(28), weatherList.get(29)));
+            weather.add(new Weather(weatherList.get(30), weatherList.get(31), weatherList.get(32), weatherList.get(33), weatherList.get(34), weatherList.get(35)));
+            weather.add(new Weather(weatherList.get(36), weatherList.get(37), weatherList.get(38), weatherList.get(39), weatherList.get(40), weatherList.get(41)));
+
+        return weather;
     }
 
     //The button that checks the weather.
@@ -73,15 +70,32 @@ public class WeatherController implements Initializable {
             System.out.println(country);
             //Validates user input
             List<String> errors = Validator.validateInput(country, zipCode);
-            if (!errors.isEmpty()){
+            if (!errors.isEmpty()){ //Basic error outputter.
                 System.out.println("Something was incorrect with the data you inputted, please check below for more information: ");
                 for (String error: errors){
                     System.out.println(" - " + error + " ");
                 }
-            } else {
+            } else { //Grabs data and sends it out.
                 String[] zipList = ZipToCountry.CountryZipCode(country, zipCode);
 
                 List<String> weatherList = WeatherSettings.weatherChecker(Double.parseDouble(zipList[0]), Double.parseDouble(zipList[1]), tempUnit, windSpeed);
+                WeatherInterface today = new Weather(weatherList.get(0), weatherList.get(1), weatherList.get(2), weatherList.get(3), weatherList.get(4), weatherList.get(5));
+
+                // Makes sure that information is out putted correctly.
+                System.out.println("Today: ");
+                today.weatherData();
+
+                //Allows columns to function in the table
+                colInformation.setCellValueFactory(new PropertyValueFactory<Weather, String>("Temp"));
+                colDay1.setCellValueFactory(new PropertyValueFactory<Weather, String>("WindDirection"));
+                colDay2.setCellValueFactory(new PropertyValueFactory<Weather, String>("WindSpeed"));
+                colDay3.setCellValueFactory(new PropertyValueFactory<Weather, String>("Rain"));
+                colDay4.setCellValueFactory(new PropertyValueFactory<Weather, String>("SnowFall"));
+                colDay5.setCellValueFactory(new PropertyValueFactory<Weather, String>("Showers"));
+                //colDay6.setCellValueFactory(new PropertyValueFactory<Weather, String>("Day 6"));
+                //colDay7.setCellValueFactory(new PropertyValueFactory<Weather, String>("Day 7"));
+
+                tblWeeklyWeather.setItems(getWeather(weatherList)); //Adds information of weather
             }
         } catch (Exception e){
             System.out.println(e);
@@ -105,9 +119,8 @@ public class WeatherController implements Initializable {
         // Deletes the left-over parenthesis
         result.deleteCharAt(3);
         result.deleteCharAt(0);
-        String baseChars = result.toString();
 
-        return baseChars;
+        return result.toString();
     }
 
 

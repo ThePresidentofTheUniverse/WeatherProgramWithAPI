@@ -18,13 +18,13 @@ public class WeatherSettings {
         // Switch statement to see if what temperature is picked.
         boolean kelvin = false;
         switch (tempPref){
-            case "1":
+            case "1", "Celsius":
                 tempPref = "";
                 break;
-            case "2":
+            case "2", "Fahrenheit":
                 tempPref = "&temperature_unit=fahrenheit";
                 break;
-            case "3":
+            case "3", "Kelvin":
                 tempPref = "";
                 kelvin = true;
                 break;
@@ -35,16 +35,16 @@ public class WeatherSettings {
 
         // Switch statement to see what wind speed unit they are going to use
         switch (speedUnit){
-            case "1":
+            case "1", "km/h":
                 speedUnit = "";
                 break;
-            case "2":
+            case "2", "m/s":
                 speedUnit = "&wind_speed_unit=ms";
                 break;
-            case "3":
+            case "3", "mph":
                 speedUnit = "&wind_speed_unit=mph";
                 break;
-            case "4":
+            case "4", "Knots":
                 speedUnit = "&wind_speed_unit=kn";
                 break;
             default:
