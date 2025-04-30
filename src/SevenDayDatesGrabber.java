@@ -30,7 +30,35 @@ public class SevenDayDatesGrabber {
 
             //System.out.println(labelDates[index]);
             index++;
+        }
+        index = 0; //resets the index
+        for(String label : labelDates){
+            switch (label){ //Switch statement used to set up full dates.
 
+                case "Mon":
+                    label = "Monday";
+                    break;
+                case "Tue":
+                    label = "Tuesday";
+                    break;
+                case "Wed":
+                    label = "Wednesday";
+                    break;
+                case "Thu":
+                    label = "Thursday";
+                    break;
+                case "Fri":
+                    label = "Friday";
+                    break;
+                case "Sat":
+                    label = "Saturday";
+                    break;
+                case "Sun":
+                    label = "Sunday";
+                    break;
+            }
+            labelDates[index] = label;
+            index++;
         }
 
         return labelDates;
