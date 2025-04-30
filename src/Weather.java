@@ -20,6 +20,14 @@ public class Weather implements WeatherInterface {
         this.date = date;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
     @Override
     public String getTemp() {
         return temperature;
