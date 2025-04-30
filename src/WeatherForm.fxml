@@ -36,5 +36,14 @@
          <image>
             <Image url="@Images/EarthFromSpaceSquare.PNG" />
          </image></ImageView>
+      <Label fx:id="lblCountryInfo" layoutX="217.0" layoutY="235.0" prefHeight="17.0" prefWidth="45.0" text="Country:" />
+      <Label fx:id="lblCityInfo" layoutX="217.0" layoutY="255.0" text="City:" />
+      <Label fx:id="lblLatInfo" layoutX="215.0" layoutY="276.0" text="Latitude:" />
+      <Label fx:id="lblLongInfo" layoutX="215.0" layoutY="293.0" text="Longtiude:" />
+      <Label fx:id="lblCountryInformation" layoutX="215.0" layoutY="318.0" text="Country Information:" />
+      <Label fx:id="lblError" layoutX="76.0" layoutY="293.0" text="e" />
+      <Label fx:id="lblError1" layoutX="76.0" layoutY="310.0" text="e" />
+      <Label fx:id="lblError2" layoutX="76.0" layoutY="327.0" text="e" />
+      <Label fx:id="lblError4" layoutX="76.0" layoutY="344.0" text="e" />
    </children>
 </AnchorPane>
