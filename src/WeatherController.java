@@ -88,13 +88,15 @@ public class WeatherController implements Initializable {
             String tempUnit = "Celsius";
             String windSpeed = "km/h";
             String country = "";
-            String zipCode;
+            String zipCode = "";
 
             //Grabs the new values inputted & Checks to see if the values are null or not
             if (cmbCountry.getValue() != null){
                 country = nameRemover(cmbCountry.getValue());
             }
-            zipCode = txtZipCode.getText().trim();
+            if (txtZipCode.getText() != null) {
+                zipCode = txtZipCode.getText().trim();
+            }
             if (cmbTempUnit.getValue() != null) {
                 tempUnit = cmbTempUnit.getValue();
             }
@@ -106,7 +108,8 @@ public class WeatherController implements Initializable {
             System.out.println(country);
             //Validates user input
             int errorCount = 1;
-            List<String> errors = Validator.validateInput(country, zipCode); //This exists early on so errors can be added to it.
+            List<String> errors = Validator.validateInput(country, zipCode);
+            //This exists early on so errors can be added to it.
             if (!errors.isEmpty()){ //Outputs error to both the console and the program, allowing users to understand that the information is not valid.
                 System.out.println("Something was incorrect with the data you inputted, please check below for more information: ");
 
@@ -127,48 +130,46 @@ public class WeatherController implements Initializable {
                     }
                     errorCount++;
                 }
-
             } else { //Grabs data and sends it out.
                 String[] zipList = ZipToCountry.CountryZipCode(country, zipCode);
-                //Grabs the current day and next six days
-                String[] dates;
-                dates = SevenDayDatesGrabber.dateFinder();
+                    //Grabs the current day and next six days
+                    String[] dates;
+                    dates = SevenDayDatesGrabber.dateFinder();
 
-                List<String> weatherList = WeatherSettings.weatherChecker(Double.parseDouble(zipList[0]), Double.parseDouble(zipList[1]), tempUnit, windSpeed);
-                WeatherInterface today = new Weather(weatherList.get(0), weatherList.get(1), weatherList.get(2), weatherList.get(3), weatherList.get(4), weatherList.get(5), dates[1]);
+                    List<String> weatherList = WeatherSettings.weatherChecker(Double.parseDouble(zipList[0]), Double.parseDouble(zipList[1]), tempUnit, windSpeed);
+                    WeatherInterface today = new Weather(weatherList.get(0), weatherList.get(1), weatherList.get(2), weatherList.get(3), weatherList.get(4), weatherList.get(5), dates[1]);
 
-                // Makes sure that information is out putted correctly.
-                today.weatherData();
+                    // Makes sure that information is out putted correctly.
+                    today.weatherData();
 
-                //Allows columns to function in the table, they must have the same names as the getters.
-                colInformation.setCellValueFactory(new PropertyValueFactory<Weather, String>("Date"));
-                colDay1.setCellValueFactory(new PropertyValueFactory<Weather, String>("Temp"));
-                colDay2.setCellValueFactory(new PropertyValueFactory<Weather, String>("WindDirection"));
-                colDay3.setCellValueFactory(new PropertyValueFactory<Weather, String>("WindSpeed"));
-                colDay4.setCellValueFactory(new PropertyValueFactory<Weather, String>("Rain"));
-                colDay5.setCellValueFactory(new PropertyValueFactory<Weather, String>("SnowFall"));
-                colDay6.setCellValueFactory(new PropertyValueFactory<Weather, String>("Showers"));
+                    //Allows columns to function in the table, they must have the same names as the getters.
+                    colInformation.setCellValueFactory(new PropertyValueFactory<Weather, String>("Date"));
+                    colDay1.setCellValueFactory(new PropertyValueFactory<Weather, String>("Temp"));
+                    colDay2.setCellValueFactory(new PropertyValueFactory<Weather, String>("WindDirection"));
+                    colDay3.setCellValueFactory(new PropertyValueFactory<Weather, String>("WindSpeed"));
+                    colDay4.setCellValueFactory(new PropertyValueFactory<Weather, String>("Rain"));
+                    colDay5.setCellValueFactory(new PropertyValueFactory<Weather, String>("SnowFall"));
+                    colDay6.setCellValueFactory(new PropertyValueFactory<Weather, String>("Showers"));
 
 
-                tblWeeklyWeather.setItems(getWeather(weatherList)); //Adds information of weather
+                    tblWeeklyWeather.setItems(getWeather(weatherList)); //Adds information of weather
 
-                //Adds information of location to labels.
-                lblCountryName.setText(zipList[2]);
-                lblCityName.setText(zipList[3]);
-                lblLatitudeCoord.setText(zipList[0]);
-                lblLongCoord.setText(zipList[1]);
+                    //Adds information of location to labels.
+                    lblCountryName.setText(zipList[2]);
+                    lblCityName.setText(zipList[3]);
+                    lblLatitudeCoord.setText(zipList[0]);
+                    lblLongCoord.setText(zipList[1]);
 
-                //Switches Picture to the country that was inputted.
+                    //Switches Picture to the country that was inputted.
                     String urlImage = "Images\\" + zipList[2] + ".png";
                     Image imageCountry = new Image(urlImage);
                     imgCountry.setImage(imageCountry);
 
 
-
-               lblError.setText(""); //Clears any previous errors shown.
-               lblError1.setText("");
-               lblError2.setText("");
-               lblError3.setText("");
+                    lblError.setText(""); //Clears any previous errors shown.
+                    lblError1.setText("");
+                    lblError2.setText("");
+                    lblError3.setText("");
             }
         } catch (Exception e){ //A catch-all to make sure that there are no errors that I missed.
             System.out.println(e);

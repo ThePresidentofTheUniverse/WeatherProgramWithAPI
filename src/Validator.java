@@ -23,9 +23,10 @@ public class Validator {
 
     //Zip code validation (I built a separate method for this validation).
     private static boolean isValidZipCode(String zipCode, String countryInit){
-       return zipCode != null && RegexForZipCodes.CountryRegex(zipCode, countryInit);
-
-
+        String[] zipList = ZipToCountry.CountryZipCode(countryInit, zipCode); //This is a fix-all, making sure the zip code returns information.
+       return zipCode != null && RegexForZipCodes.CountryRegex(zipCode, countryInit) && zipList[2] != null;
     }
+
+
 
 }

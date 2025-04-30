@@ -47,32 +47,32 @@ public class WeatherDriver {
                     index++;
                 }
 
-                System.out.println("The weather in the format of a list: "); //Grabs information of weather.
-                List<String> weatherList = WeatherSettings.weatherChecker(Double.parseDouble(zipList[0]), Double.parseDouble(zipList[1]), tempPref, speedUnit);
+                System.out.println("The weather in the format of a list: "); //Grabs information of weather
+
+                    List<String> weatherList = WeatherSettings.weatherChecker(Double.parseDouble(zipList[0]), Double.parseDouble(zipList[1]), tempPref, speedUnit);
 
 
-                String[] dates;
-                //Grabs the current day and next six days
-                dates = SevenDayDatesGrabber.dateFinder();
+                    String[] dates;
+                    //Grabs the current day and next six days
+                    dates = SevenDayDatesGrabber.dateFinder();
 
-                //Hastily put together because I forgot to add the interface AND the class.
-                WeatherInterface day1 = new Weather(weatherList.get(0), weatherList.get(1), weatherList.get(2), weatherList.get(3), weatherList.get(4), weatherList.get(5),dates[0]);
-                WeatherInterface day2 = new Weather(weatherList.get(6), weatherList.get(7), weatherList.get(8), weatherList.get(9), weatherList.get(10), weatherList.get(11), dates[1]);
-                WeatherInterface day3 = new Weather(weatherList.get(12), weatherList.get(13), weatherList.get(14), weatherList.get(15), weatherList.get(16), weatherList.get(17), dates[2]);
-                WeatherInterface day4 = new Weather(weatherList.get(18), weatherList.get(19), weatherList.get(20), weatherList.get(21), weatherList.get(22), weatherList.get(23), dates[3]);
-                WeatherInterface day5 = new Weather(weatherList.get(24), weatherList.get(25), weatherList.get(26), weatherList.get(27), weatherList.get(28), weatherList.get(29), dates[4]);
-                WeatherInterface day6 = new Weather(weatherList.get(30), weatherList.get(31), weatherList.get(32), weatherList.get(33), weatherList.get(34), weatherList.get(35), dates[5]);
-                WeatherInterface day7 = new Weather(weatherList.get(36), weatherList.get(37), weatherList.get(38), weatherList.get(39), weatherList.get(40), weatherList.get(41), dates[6]);
+                    //Hastily put together because I forgot to add the interface AND the class.
+                    WeatherInterface day1 = new Weather(weatherList.get(0), weatherList.get(1), weatherList.get(2), weatherList.get(3), weatherList.get(4), weatherList.get(5), dates[0]);
+                    WeatherInterface day2 = new Weather(weatherList.get(6), weatherList.get(7), weatherList.get(8), weatherList.get(9), weatherList.get(10), weatherList.get(11), dates[1]);
+                    WeatherInterface day3 = new Weather(weatherList.get(12), weatherList.get(13), weatherList.get(14), weatherList.get(15), weatherList.get(16), weatherList.get(17), dates[2]);
+                    WeatherInterface day4 = new Weather(weatherList.get(18), weatherList.get(19), weatherList.get(20), weatherList.get(21), weatherList.get(22), weatherList.get(23), dates[3]);
+                    WeatherInterface day5 = new Weather(weatherList.get(24), weatherList.get(25), weatherList.get(26), weatherList.get(27), weatherList.get(28), weatherList.get(29), dates[4]);
+                    WeatherInterface day6 = new Weather(weatherList.get(30), weatherList.get(31), weatherList.get(32), weatherList.get(33), weatherList.get(34), weatherList.get(35), dates[5]);
+                    WeatherInterface day7 = new Weather(weatherList.get(36), weatherList.get(37), weatherList.get(38), weatherList.get(39), weatherList.get(40), weatherList.get(41), dates[6]);
 
-                            day1.weatherData();
-                            day2.weatherData();
-                            day3.weatherData();
-                            day4.weatherData();
-                            day5.weatherData();
-                            day6.weatherData();
-                            day7.weatherData();
-                            day1.weatherData();
-
+                    day1.weatherData();
+                    day2.weatherData();
+                    day3.weatherData();
+                    day4.weatherData();
+                    day5.weatherData();
+                    day6.weatherData();
+                    day7.weatherData();
+                    day1.weatherData();
             }
     }
 }
