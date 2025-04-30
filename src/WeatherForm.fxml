@@ -21,13 +21,13 @@
       <Button fx:id="btnCheckWeather" layoutX="31.0" layoutY="251.0" mnemonicParsing="false" onAction="#checkingWeather" text="Check the Weather" />
       <TableView fx:id="tblWeeklyWeather" layoutX="217.0" layoutY="30.0" prefHeight="195.0" prefWidth="577.0">
         <columns>
-          <TableColumn fx:id="colInformation" prefWidth="75.0" text="Date" />
-          <TableColumn fx:id="colDay1" prefWidth="91.0" text="Temperature" />
-            <TableColumn fx:id="colDay2" prefWidth="100.0" text="Wind Direction" />
-            <TableColumn fx:id="colDay3" prefWidth="81.0" text="Wind Speed" />
-            <TableColumn fx:id="colDay4" prefWidth="64.0" text="Rain" />
-            <TableColumn fx:id="colDay5" prefWidth="93.0" text="Snowfall" />
-            <TableColumn fx:id="colDay6" minWidth="6.0" prefWidth="71.0" text="Showers" />
+          <TableColumn fx:id="colInformation" editable="false" prefWidth="75.0" sortable="false" text="Date" />
+          <TableColumn fx:id="colDay1" editable="false" prefWidth="91.0" text="Temperature" />
+            <TableColumn fx:id="colDay2" editable="false" prefWidth="100.0" text="Wind Direction" />
+            <TableColumn fx:id="colDay3" editable="false" prefWidth="81.0" text="Wind Speed" />
+            <TableColumn fx:id="colDay4" editable="false" prefWidth="64.0" text="Rain" />
+            <TableColumn fx:id="colDay5" editable="false" prefWidth="93.0" text="Snowfall" />
+            <TableColumn fx:id="colDay6" editable="false" minWidth="6.0" prefWidth="71.0" text="Showers" />
         </columns>
       </TableView>
    </children>
