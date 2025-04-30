@@ -19,16 +19,15 @@
       <Label fx:id="lblWindSpeed" layoutX="14.0" layoutY="183.0" text="Wind Speed Unit" />
       <ComboBox fx:id="cmbWindSpeed" layoutX="14.0" layoutY="200.0" prefWidth="150.0" promptText="Defaults to km/h" />
       <Button fx:id="btnCheckWeather" layoutX="31.0" layoutY="251.0" mnemonicParsing="false" onAction="#checkingWeather" text="Check the Weather" />
-      <TableView fx:id="tblWeeklyWeather" layoutX="217.0" layoutY="30.0" prefHeight="185.0" prefWidth="600.0">
+      <TableView fx:id="tblWeeklyWeather" layoutX="217.0" layoutY="30.0" prefHeight="185.0" prefWidth="577.0">
         <columns>
-          <TableColumn fx:id="colInformation" prefWidth="75.0" text="Information" />
-          <TableColumn fx:id="colDay1" prefWidth="75.0" text="Day 1" />
-            <TableColumn fx:id="colDay2" prefWidth="75.0" text="Day 2" />
-            <TableColumn fx:id="colDay3" prefWidth="75.0" text="Day 3" />
-            <TableColumn fx:id="colDay4" prefWidth="75.0" text="Day 4" />
-            <TableColumn fx:id="colDay5" prefWidth="75.0" text="Day 5" />
-            <TableColumn fx:id="colDay6" prefWidth="75.0" text="Day 6" />
-            <TableColumn fx:id="colDay7" prefWidth="75.0" text="Day 7" />
+          <TableColumn fx:id="colInformation" prefWidth="75.0" text="Date" />
+          <TableColumn fx:id="colDay1" prefWidth="91.0" text="Temperature" />
+            <TableColumn fx:id="colDay2" prefWidth="100.0" text="Wind Direction" />
+            <TableColumn fx:id="colDay3" prefWidth="81.0" text="Wind Speed" />
+            <TableColumn fx:id="colDay4" prefWidth="64.0" text="Rain" />
+            <TableColumn fx:id="colDay5" prefWidth="93.0" text="Snowfall" />
+            <TableColumn fx:id="colDay6" minWidth="6.0" prefWidth="71.0" text="Showers" />
         </columns>
       </TableView>
    </children>

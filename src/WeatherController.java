@@ -30,7 +30,6 @@ public class WeatherController implements Initializable {
     public TableColumn<Weather, String> colDay4;
     public TableColumn<Weather, String> colDay5;
     public TableColumn<Weather, String> colDay6;
-    public TableColumn<Weather, String> colDay7;
 
     //Adds information to the combo boxes, perfect for controlling user input
     @Override
@@ -62,10 +61,21 @@ public class WeatherController implements Initializable {
     @FXML
     void checkingWeather(){
         try{
+            //Sets the default values if left empty.
+            String tempUnit = "Celsius";
+            String windSpeed = "km/h";
+
+            //Grabs the new values inputted
             String country = nameRemover(cmbCountry.getValue());
             String zipCode = txtZipCode.getText().trim();
-            String tempUnit = cmbTempUnit.getValue();
-            String windSpeed = cmbWindSpeed.getValue();
+            //Checks to see if the values are null or not
+            if (cmbTempUnit.getValue() != null) {
+                tempUnit = cmbTempUnit.getValue();
+            }
+            if (cmbWindSpeed.getValue() != null) {
+                windSpeed = cmbWindSpeed.getValue();
+            }
+
 
             System.out.println(country);
             //Validates user input
@@ -97,6 +107,7 @@ public class WeatherController implements Initializable {
             }
         } catch (Exception e){
             System.out.println(e);
+
         }
     }
 
