@@ -42,7 +42,7 @@
       <Label fx:id="lblLongInfo" layoutX="215.0" layoutY="293.0" text="Longtiude:" />
       <Label fx:id="lblCountryInformation" layoutX="215.0" layoutY="318.0" text="Country Information:" />
       <Label fx:id="lblError" layoutX="15.0" layoutY="285.0" text="e" />
-      <Label fx:id="lblError1" layoutX="15.0" layoutY="335.0" text="e" />
+      <Label fx:id="lblError1" layoutX="15.0" layoutY="318.0" text="e" />
       <Label fx:id="lblError2" layoutX="15.0" layoutY="361.0" text="e" />
       <Label fx:id="lblError3" layoutX="15.0" layoutY="387.0" text="e" />
    </children>

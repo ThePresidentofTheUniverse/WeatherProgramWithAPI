@@ -7,10 +7,10 @@ public class Validator {
     public static List<String> validateInput(String countryInit, String zipCode){
         List<String> errors = new ArrayList<>();
         if(!isValidCountryInitials(countryInit)){
-            errors.add("The country initials are not valid, please check input.");
+            errors.add("The country initials are not valid,\nplease check input.");
         }
         if(!isValidZipCode(zipCode, countryInit)){
-            errors.add("The zip code you have entered is not valid, please check input");
+            errors.add("The zip code you have entered is\nnot valid, please check input");
         }
 
         return errors; //This returns all errors.
