@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WeatherController">
+<AnchorPane prefHeight="435.0" prefWidth="801.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WeatherController">
    <children>
       <Label fx:id="lblCountry" layoutX="15.0" layoutY="14.0" text="Country" />
       <ComboBox fx:id="cmbCountry" layoutX="14.0" layoutY="31.0" prefHeight="25.0" prefWidth="176.0" promptText="please select a country..." />
@@ -21,13 +21,13 @@
       <Button fx:id="btnCheckWeather" layoutX="31.0" layoutY="251.0" mnemonicParsing="false" onAction="#checkingWeather" text="Check the Weather" />
       <TableView fx:id="tblWeeklyWeather" layoutX="217.0" layoutY="30.0" prefHeight="195.0" prefWidth="577.0">
         <columns>
-          <TableColumn fx:id="colInformation" editable="false" prefWidth="75.0" sortable="false" text="Date" />
-          <TableColumn fx:id="colDay1" editable="false" prefWidth="91.0" text="Temperature" />
-            <TableColumn fx:id="colDay2" editable="false" prefWidth="100.0" text="Wind Direction" />
-            <TableColumn fx:id="colDay3" editable="false" prefWidth="81.0" text="Wind Speed" />
-            <TableColumn fx:id="colDay4" editable="false" prefWidth="64.0" text="Rain" />
-            <TableColumn fx:id="colDay5" editable="false" prefWidth="93.0" text="Snowfall" />
-            <TableColumn fx:id="colDay6" editable="false" minWidth="6.0" prefWidth="71.0" text="Showers" />
+          <TableColumn fx:id="colInformation" editable="false" prefWidth="75.0" resizable="false" sortable="false" text="Date" />
+          <TableColumn fx:id="colDay1" editable="false" prefWidth="91.0" resizable="false" text="Temperature" />
+            <TableColumn fx:id="colDay2" editable="false" prefWidth="100.0" resizable="false" text="Wind Direction" />
+            <TableColumn fx:id="colDay3" editable="false" prefWidth="81.0" resizable="false" text="Wind Speed" />
+            <TableColumn fx:id="colDay4" editable="false" prefWidth="64.0" resizable="false" text="Rain" />
+            <TableColumn fx:id="colDay5" editable="false" prefWidth="93.0" resizable="false" text="Snowfall" />
+            <TableColumn fx:id="colDay6" editable="false" minWidth="6.0" prefWidth="71.0" resizable="false" text="Showers" />
         </columns>
       </TableView>
    </children>
