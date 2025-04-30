@@ -30,6 +30,10 @@ public class WeatherController implements Initializable {
     public TableColumn<Weather, String> colDay4;
     public TableColumn<Weather, String> colDay5;
     public TableColumn<Weather, String> colDay6;
+    public Label lblError;
+    public Label lblError1;
+    public Label lblError2;
+    public Label lblError3;
 
     //Adds information to the combo boxes, perfect for controlling user input
     @Override

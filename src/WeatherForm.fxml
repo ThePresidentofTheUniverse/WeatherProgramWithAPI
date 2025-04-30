@@ -44,6 +44,6 @@
       <Label fx:id="lblError" layoutX="76.0" layoutY="293.0" text="e" />
       <Label fx:id="lblError1" layoutX="76.0" layoutY="310.0" text="e" />
       <Label fx:id="lblError2" layoutX="76.0" layoutY="327.0" text="e" />
-      <Label fx:id="lblError4" layoutX="76.0" layoutY="344.0" text="e" />
+      <Label fx:id="lblError3" layoutX="76.0" layoutY="344.0" text="e" />
    </children>
 </AnchorPane>
