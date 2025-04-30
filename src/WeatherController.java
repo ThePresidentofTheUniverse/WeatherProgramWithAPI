@@ -6,6 +6,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -48,19 +49,17 @@ public class WeatherController implements Initializable {
         colDay6.setCellValueFactory(new PropertyValueFactory<Weather, String>("Day 6"));
         colDay7.setCellValueFactory(new PropertyValueFactory<Weather, String>("Day 7"));
 
-      //  tblWeeklyWeather.setItems();
+        tblWeeklyWeather.setItems(getWeather());
     }
 
-    // A method to add information to the array list.
-//    public ObservableList<Weather> getWeather(){
-//
-//        ObservableList<Weather> weather = FXCollections.observableArrayList();
-//
-//        for ()
-//        weather.add(new Weather());
-//    }
+     //A method to add information to the array list.
+    public ObservableList<Weather> getWeather(){
 
+        ObservableList<Weather> weather = FXCollections.observableArrayList();
 
+        for ()
+        weather.add(new Weather());
+    }
 
     //The button that checks the weather.
     @FXML
@@ -68,12 +67,22 @@ public class WeatherController implements Initializable {
         try{
             String country = nameRemover(cmbCountry.getValue());
             String zipCode = txtZipCode.getText().trim();
-            String TempUnit = cmbTempUnit.getValue();
+            String tempUnit = cmbTempUnit.getValue();
             String windSpeed = cmbWindSpeed.getValue();
 
             System.out.println(country);
             //Validates user input
-            Validator.validateInput(country, zipCode);
+            List<String> errors = Validator.validateInput(country, zipCode);
+            if (!errors.isEmpty()){
+                System.out.println("Something was incorrect with the data you inputted, please check below for more information: ");
+                for (String error: errors){
+                    System.out.println(" - " + error + " ");
+                }
+            } else {
+                String[] zipList = ZipToCountry.CountryZipCode(country, zipCode);
+
+                List<String> weatherList = WeatherSettings.weatherChecker(Double.parseDouble(zipList[0]), Double.parseDouble(zipList[1]), tempUnit, windSpeed);
+            }
         } catch (Exception e){
             System.out.println(e);
         }
