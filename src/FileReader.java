@@ -6,17 +6,18 @@ public class FileReader { //I feel like having all the information of countries 
 
 
     public static String ReadCountry(String countryName) throws FileNotFoundException {
+        StringBuilder sb = new StringBuilder();
         String data = "";
         File findFile = new File("src\\CountryInformation\\" + countryName);
         Scanner readFile = new Scanner(findFile);
         while (readFile.hasNextLine()){
             data = readFile.nextLine();
-
-            System.out.println(data);
-
+            sb.append("\n"+data);
         }
+
+        System.out.println(sb);
         readFile.close();
 
-        return data;
+        return sb.toString();
     }
 }
