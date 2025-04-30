@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
 
 import java.net.URL;
 import java.util.List;
@@ -22,6 +23,7 @@ public class WeatherController implements Initializable {
     public Label lblWindSpeed;
     public ComboBox<String> cmbWindSpeed;
     public Button btnCheckWeather;
+    //The whole table
     public TableView<Weather> tblWeeklyWeather;
     public TableColumn<Weather, String> colInformation;
     public TableColumn<Weather, String> colDay1;
@@ -30,6 +32,19 @@ public class WeatherController implements Initializable {
     public TableColumn<Weather, String> colDay4;
     public TableColumn<Weather, String> colDay5;
     public TableColumn<Weather, String> colDay6;
+    //The not-changing country information
+    public Label lblCountryInfo;
+    public Label lblCityInfo;
+    public Label lblLatInfo;
+    public Label lblLongInfo;
+    public Label lblCountryInformation;
+    //The changing country information
+    public ImageView imgCountry;
+    public Label lblCountryName;
+    public Label lblCityName;
+    public Label lblLatitudeCoord;
+    public Label lblLongCoord;
+    //The error list
     public Label lblError;
     public Label lblError1;
     public Label lblError2;
@@ -112,8 +127,6 @@ public class WeatherController implements Initializable {
                     errorCount++;
                 }
 
-
-
             } else { //Grabs data and sends it out.
                 String[] zipList = ZipToCountry.CountryZipCode(country, zipCode);
                 //Grabs the current day and next six days
@@ -139,6 +152,10 @@ public class WeatherController implements Initializable {
                 tblWeeklyWeather.setItems(getWeather(weatherList)); //Adds information of weather
 
                 //Adds information of location to labels.
+                lblCountryName.setText(zipList[2]);
+                lblCityName.setText(zipList[3]);
+                lblLatitudeCoord.setText(zipList[0]);
+                lblLongCoord.setText(zipList[1]);
 
                lblError.setText(""); //Clears any previous errors shown.
                lblError1.setText("");
