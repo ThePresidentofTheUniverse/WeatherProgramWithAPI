@@ -19,7 +19,7 @@
       <Label fx:id="lblWindSpeed" layoutX="14.0" layoutY="183.0" text="Wind Speed Unit" />
       <ComboBox fx:id="cmbWindSpeed" layoutX="14.0" layoutY="200.0" prefWidth="150.0" promptText="Defaults to km/h" />
       <Button fx:id="btnCheckWeather" layoutX="31.0" layoutY="251.0" mnemonicParsing="false" onAction="#checkingWeather" text="Check the Weather" />
-      <TableView fx:id="tblWeeklyWeather" layoutX="217.0" layoutY="30.0" prefHeight="185.0" prefWidth="577.0">
+      <TableView fx:id="tblWeeklyWeather" layoutX="217.0" layoutY="30.0" prefHeight="195.0" prefWidth="577.0">
         <columns>
           <TableColumn fx:id="colInformation" prefWidth="75.0" text="Date" />
           <TableColumn fx:id="colDay1" prefWidth="91.0" text="Temperature" />

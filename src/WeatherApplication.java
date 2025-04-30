@@ -16,9 +16,10 @@ public class WeatherApplication extends Application{
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("WeatherForm.fxml"));
+        stage.setResizable(false);
         stage.setTitle("Your world-wide Weather Checker");
         stage.getIcons().add(new Image("Images/CloudIcon.png"));
-        stage.setScene(new Scene(root, 600, 600));
+        stage.setScene(new Scene(root, 800, 600));
         stage.show();
     }
 }
