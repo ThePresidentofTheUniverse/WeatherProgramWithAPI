@@ -3,10 +3,6 @@ import java.util.Date;
 
 public class SevenDayDatesGrabber {
 
-
-    public static void main(String[] args) {
-        calendar();
-    }
     // Grabs today's date and the next six days also.
     public static Calendar calendar(){
 
@@ -15,31 +11,28 @@ public class SevenDayDatesGrabber {
 
         String[] labelDates = new String[7];
 
-        c.setTime(new Date());
-
+        c.add(Calendar.DATE, (0)); //Adds the initial date.
+        converter = c.getTime().toString(); //converts to string
+        StringBuilder sb = new StringBuilder(converter); //about to make this fancy
+        converter = sb.delete(3, 28).toString();// beautifies it.
+        labelDates[0] = converter; //Adds to label dates
         int index = 0;
-        for (int i = 0; i < 7; i++){
-            System.out.println(index);
-            c.add(Calendar.DATE, (index));
+        for (int i = 0; i < 6; i++){ //A for-loop that cycles through each day, incrementing.
+            c.add(Calendar.DATE, (1));
 
             converter = c.getTime().toString();
 
-            StringBuilder sb = new StringBuilder(converter); //about to make this fancy
+            sb = new StringBuilder(converter); //about to make this fancy
 
             converter = sb.delete(3, 28).toString();// beautifies it.
 
-            labelDates[index] = converter;
+            labelDates[index + 1] = converter; //Plus-one to allow current day to exist.
 
-
-
-            System.out.println(labelDates[index]);
+            //System.out.println(labelDates[index]);
             index++;
 
 
         }
-
-        index=0; //resets the index
-
 
         return c;
     }
