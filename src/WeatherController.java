@@ -92,7 +92,7 @@ public class WeatherController implements Initializable {
                 int errorCount = 1;
                 for (String error: errors){
                     System.out.println(error);
-                    lblError.setText("An error has occurred, please check list below for more information:");
+                    lblError.setText("An error has occurred,\nplease check list below\nfor more information:");
                     switch (errorCount){
 
                         case 1:
