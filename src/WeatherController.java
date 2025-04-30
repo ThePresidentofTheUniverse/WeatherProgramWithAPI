@@ -87,20 +87,25 @@ public class WeatherController implements Initializable {
                 }
             } else { //Grabs data and sends it out.
                 String[] zipList = ZipToCountry.CountryZipCode(country, zipCode);
+                //Grabs the current day and next six days
+                String[] dates;
+                dates = SevenDayDatesGrabber.dateFinder();
 
                 List<String> weatherList = WeatherSettings.weatherChecker(Double.parseDouble(zipList[0]), Double.parseDouble(zipList[1]), tempUnit, windSpeed);
-                WeatherInterface today = new Weather(weatherList.get(0), weatherList.get(1), weatherList.get(2), weatherList.get(3), weatherList.get(4), weatherList.get(5));
+                WeatherInterface today = new Weather(weatherList.get(0), weatherList.get(1), weatherList.get(2), weatherList.get(3), weatherList.get(4), weatherList.get(5), );
 
                 // Makes sure that information is out putted correctly.
                 today.weatherData();
 
                 //Allows columns to function in the table, they must have the same names as the getters.
-                colInformation.setCellValueFactory(new PropertyValueFactory<Weather, String>("Temp"));
-                colDay1.setCellValueFactory(new PropertyValueFactory<Weather, String>("WindDirection"));
-                colDay2.setCellValueFactory(new PropertyValueFactory<Weather, String>("WindSpeed"));
-                colDay3.setCellValueFactory(new PropertyValueFactory<Weather, String>("Rain"));
-                colDay4.setCellValueFactory(new PropertyValueFactory<Weather, String>("SnowFall"));
-                colDay5.setCellValueFactory(new PropertyValueFactory<Weather, String>("Showers"));
+                colInformation.setCellValueFactory(new PropertyValueFactory<>());
+                colDay1.setCellValueFactory(new PropertyValueFactory<Weather, String>("Temp"));
+                colDay2.setCellValueFactory(new PropertyValueFactory<Weather, String>("WindDirection"));
+                colDay3.setCellValueFactory(new PropertyValueFactory<Weather, String>("WindSpeed"));
+                colDay4.setCellValueFactory(new PropertyValueFactory<Weather, String>("Rain"));
+                colDay5.setCellValueFactory(new PropertyValueFactory<Weather, String>("SnowFall"));
+                colDay6.setCellValueFactory(new PropertyValueFactory<Weather, String>("Showers"));
+
 
                 tblWeeklyWeather.setItems(getWeather(weatherList)); //Adds information of weather
             }

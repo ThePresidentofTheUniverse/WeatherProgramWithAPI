@@ -1,6 +1,7 @@
 public class Weather implements WeatherInterface {
 
     //What is being tracked of will be listed below...
+    private String date;
     private String temperature;
     private String windDirection;
     private String windSpeed;
@@ -9,13 +10,14 @@ public class Weather implements WeatherInterface {
     private String showers;
 
     //constructor
-    public Weather(String temperature, String windDirection, String windSpeed, String rain, String snowFall, String showers) {
+    public Weather(String temperature, String windDirection, String windSpeed, String rain, String snowFall, String showers, String date) {
         this.temperature = temperature;
         this.windDirection = windDirection;
         this.windSpeed = windSpeed;
         this.rain = rain;
         this.snowFall = snowFall;
         this.showers = showers;
+        this.date = date;
     }
 
     @Override
@@ -50,7 +52,7 @@ public class Weather implements WeatherInterface {
 
     @Override
     public void weatherData() {
-        System.out.println("Information of weather:\nTemperature: " + temperature + "\nWind Direction: " + windDirection +
+        System.out.println("Information of weather:\nDate: " + date + "\nTemperature: " + temperature + "\nWind Direction: " + windDirection +
                 "\nWindSpeed: " + windSpeed + "\nRain: " + rain + "\nSnowFall: " + snowFall + "\nShowers: " + showers);
     }
 }

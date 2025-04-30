@@ -95,12 +95,6 @@ public class WeatherDriver {
                     System.out.println("\n");
                     index++;
                 }
-
-
-
-
-
-
             }
     }
 }
