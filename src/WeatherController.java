@@ -71,11 +71,14 @@ public class WeatherController implements Initializable {
             //Sets the default values if left empty.
             String tempUnit = "Celsius";
             String windSpeed = "km/h";
+            String country = "";
+            String zipCode;
 
-            //Grabs the new values inputted
-            String country = nameRemover(cmbCountry.getValue());
-            String zipCode = txtZipCode.getText().trim();
-            //Checks to see if the values are null or not
+            //Grabs the new values inputted & Checks to see if the values are null or not
+            if (cmbCountry.getValue() != null){
+                country = nameRemover(cmbCountry.getValue());
+            }
+            zipCode = txtZipCode.getText().trim();
             if (cmbTempUnit.getValue() != null) {
                 tempUnit = cmbTempUnit.getValue();
             }
@@ -86,10 +89,11 @@ public class WeatherController implements Initializable {
 
             System.out.println(country);
             //Validates user input
-            List<String> errors = Validator.validateInput(country, zipCode);
+            int errorCount = 1;
+            List<String> errors = Validator.validateInput(country, zipCode); //This exists early on so errors can be added to it.
             if (!errors.isEmpty()){ //Outputs error to both the console and the program, allowing users to understand that the information is not valid.
                 System.out.println("Something was incorrect with the data you inputted, please check below for more information: ");
-                int errorCount = 1;
+
                 for (String error: errors){
                     System.out.println(error);
                     lblError.setText("An error has occurred,please check\nlist below for more information:");
@@ -133,6 +137,11 @@ public class WeatherController implements Initializable {
 
 
                 tblWeeklyWeather.setItems(getWeather(weatherList)); //Adds information of weather
+
+               lblError.setText(""); //Clears any previous errors shown.
+               lblError1.setText("");
+               lblError2.setText("");
+               lblError3.setText("");
             }
         } catch (Exception e){
             System.out.println(e);
