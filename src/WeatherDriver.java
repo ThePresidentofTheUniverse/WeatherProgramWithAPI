@@ -38,21 +38,48 @@ public class WeatherDriver {
                 }
             } else {
 
-                String[] zipList = ZipToCountry.CountryZipCode(countryInit, zipCode);
-
+                String[] zipList = ZipToCountry.CountryZipCode(countryInit, zipCode); //Grabs information of country and zip code
 
                 int index = 0;
-                for (String s : zipList) {
+                for (String s : zipList) { //Prints out information
                     // Conditional statements are wonderful. I enjoy using them for formating
                     String format = (index == 0 ? "Latitude: " + zipList[index] : index == 1 ? "Longitude: " + zipList[index] : index == 2 ? "Country Name: " + zipList[index] : "City Name: " + zipList[index]);
                     System.out.println(format);
                     index++;
                 }
 
-                System.out.println("The weather in the format of a list: ");
+                System.out.println("The weather in the format of a list: "); //Grabs information of weather.
                 List<String> weatherList = WeatherSettings.weatherChecker(Double.parseDouble(zipList[0]), Double.parseDouble(zipList[1]), tempPref, speedUnit);
 
-                System.out.println(weatherList);
+                //Hastily put together because I forgot to add the interface AND the class.
+               WeatherInterface today = new Weather(weatherList.get(0), weatherList.get(1), weatherList.get(2), weatherList.get(3), weatherList.get(4), weatherList.get(5));
+                WeatherInterface day2 = new Weather(weatherList.get(6), weatherList.get(7), weatherList.get(8), weatherList.get(9), weatherList.get(10), weatherList.get(11));
+                WeatherInterface day3 = new Weather(weatherList.get(12), weatherList.get(13), weatherList.get(14), weatherList.get(15), weatherList.get(16), weatherList.get(17));
+                WeatherInterface day4 = new Weather(weatherList.get(18), weatherList.get(19), weatherList.get(20), weatherList.get(21), weatherList.get(22), weatherList.get(23));
+                WeatherInterface day5 = new Weather(weatherList.get(24), weatherList.get(25), weatherList.get(26), weatherList.get(27), weatherList.get(28), weatherList.get(29));
+                WeatherInterface day6 = new Weather(weatherList.get(30), weatherList.get(31), weatherList.get(32), weatherList.get(33), weatherList.get(34), weatherList.get(35));
+                WeatherInterface day7 = new Weather(weatherList.get(36), weatherList.get(37), weatherList.get(38), weatherList.get(39), weatherList.get(40), weatherList.get(41));
+
+                System.out.println("Today: ");
+                today.weatherData();
+
+                System.out.println("Day 2: ");
+                day2.weatherData();
+
+                System.out.println("Day 3: ");
+                day3.weatherData();
+
+                System.out.println("Day 4: ");
+                day4.weatherData();
+
+                System.out.println("Day 5: ");
+                day5.weatherData();
+
+                System.out.println("Day 6: ");
+                day6.weatherData();
+
+                System.out.println("Day 7: ");
+                day7.weatherData();
             }
     }
 }

@@ -262,22 +262,15 @@ public class WeatherSettings {
 
         }
 
-
-        //This is the part that converts the data into the massive string, so it can be returned, because Java is not able to return multiple values.
-
+        //This returns the data into a list.
         for(int i = 0; i < avgTemp.length; i++) {
-            allInformation.add("Day: " + i);
-            allInformation.add("Temperture: " + avgTemp[i]);
-            allInformation.add("Wind Speed: " + avgWindSpeed[i]);
-            allInformation.add("Direction of wind: " + avgWindDirect[i]);
-            allInformation.add("Chance of Snow: " + avgSnow[i]);
-            allInformation.add("Chance of showers: " + avgShowers[i]);
-            allInformation.add("Chance of rain: " + avgRain[i]);
-            allInformation.add("\n\n");
+            allInformation.add(avgTemp[i]);
+            allInformation.add(avgWindDirect[i]);
+            allInformation.add(avgWindSpeed[i]);
+            allInformation.add(avgRain[i]);
+            allInformation.add(avgSnow[i]);
+            allInformation.add(avgShowers[i]);
         }
-
-
-        //allInformation = String.join("|" ,String.join("/", avgTemp), String.join("/",avgWindSpeed), String.join("/", avgSnow), String.join("/",avgShowers), String.join("/", avgRain), String.join("/", avgWindDirect));
 
       return allInformation;
     }

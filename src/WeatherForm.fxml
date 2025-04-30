@@ -3,9 +3,10 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WeatherController">
    <children>
@@ -18,5 +19,17 @@
       <Label fx:id="lblWindSpeed" layoutX="14.0" layoutY="183.0" text="Wind Speed Unit" />
       <ComboBox fx:id="cmbWindSpeed" layoutX="14.0" layoutY="200.0" prefWidth="150.0" promptText="Defaults to km/h" />
       <Button fx:id="btnCheckWeather" layoutX="31.0" layoutY="251.0" mnemonicParsing="false" onAction="#checkingWeather" text="Check the Weather" />
+      <TableView fx:id="tblWeeklyWeather" layoutX="217.0" layoutY="30.0" prefHeight="185.0" prefWidth="600.0">
+        <columns>
+          <TableColumn fx:id="colInformation" prefWidth="75.0" text="Information" />
+          <TableColumn fx:id="colDay1" prefWidth="75.0" text="Day 1" />
+            <TableColumn fx:id="colDay2" prefWidth="75.0" text="Day 2" />
+            <TableColumn fx:id="colDay3" prefWidth="75.0" text="Day 3" />
+            <TableColumn fx:id="colDay4" prefWidth="75.0" text="Day 4" />
+            <TableColumn fx:id="colDay5" prefWidth="75.0" text="Day 5" />
+            <TableColumn fx:id="colDay6" prefWidth="75.0" text="Day 6" />
+            <TableColumn fx:id="colDay7" prefWidth="75.0" text="Day 7" />
+        </columns>
+      </TableView>
    </children>
 </AnchorPane>
