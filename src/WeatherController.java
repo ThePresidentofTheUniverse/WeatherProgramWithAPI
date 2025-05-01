@@ -63,19 +63,19 @@ public class WeatherController implements Initializable {
         cmbWindSpeed.setItems(FXCollections.observableArrayList("km/h", "m/s", "mph", "Knots"));
 
         //Will probably not attempt the config saver.
-        try {
-            if (!ConfigFileReader.ReadConfig().isEmpty()){
-                String rawSet = ConfigFileReader.ReadConfig();
-                String[] savedSet = new String[4];
-                int index = 0;
-                for(String set : savedSet){
-
-                }
-                System.out.println(rawSet);
-            }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+//        try {
+//            if (!ConfigFileReader.ReadConfig().isEmpty()){
+//                String rawSet = ConfigFileReader.ReadConfig();
+//                String[] savedSet = new String[4];
+//                int index = 0;
+//                for(String set : savedSet){
+//
+//                }
+//                System.out.println(rawSet);
+//            }
+//        } catch (FileNotFoundException e) {
+//            throw new RuntimeException(e);
+//        }
     }
 
      //A method to add information to the array list.
