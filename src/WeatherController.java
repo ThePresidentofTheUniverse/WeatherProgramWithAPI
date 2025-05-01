@@ -24,6 +24,7 @@ public class WeatherController implements Initializable {
     public Label lblWindSpeed;
     public ComboBox<String> cmbWindSpeed;
     public Button btnCheckWeather;
+    public Button btnConfigSave;
     //The whole table
     public TableView<Weather> tblWeeklyWeather;
     public TableColumn<Weather, String> colInformation;
@@ -69,7 +70,7 @@ public class WeatherController implements Initializable {
         //Grabs the current day and next six days
         dates = SevenDayDatesGrabber.dateFinder();
 
-//            //Adds the weather to the table
+            //Adds the weather to the table
             weather.add(new Weather(weatherList.get(0), weatherList.get(1), weatherList.get(2), weatherList.get(3), weatherList.get(4), weatherList.get(5), dates[0]));
             weather.add(new Weather(weatherList.get(6), weatherList.get(7), weatherList.get(8), weatherList.get(9), weatherList.get(10), weatherList.get(11), dates[1]));
             weather.add(new Weather(weatherList.get(12), weatherList.get(13), weatherList.get(14), weatherList.get(15), weatherList.get(16), weatherList.get(17), dates[2]));
@@ -181,6 +182,13 @@ public class WeatherController implements Initializable {
             System.out.println(e);
 
         }
+    }
+
+    @FXML
+    void SaveConfiguration(){ //Saves the input that a user has created.
+//        try{
+//
+//        }
     }
 
     //Method that removes the non-parenthesis from country string.
