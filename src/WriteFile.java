@@ -3,28 +3,22 @@ import java.io.IOException;
 
 public class WriteFile {
 
-    public static void main(String[] args) {
-        String[] test = new String[3];
-        test[0] = "test";
-    test[1] = "test";
-        test[2] = "test";
-        FileWrites(test);
-
-    }
-
-    public static boolean FileWrites(String[] savedConfigs){
+    public static boolean FileWrites(String[] savedConfigs){ //Used to write information to a file.
         boolean isSuccessful;
         try{
-            FileWriter writer = new FileWriter("SavedConfig.txt");
+            FileWriter writer = new FileWriter("SavedConfig");
             for (String config : savedConfigs){
                 writer.write(config);
                 writer.write("|");
             }
             writer.close();
             isSuccessful = true;
+            System.out.println("Success");
 
         } catch (IOException e) {
+            System.out.println("Failed");
             throw new RuntimeException(e);
+
         }
         return isSuccessful;
     }

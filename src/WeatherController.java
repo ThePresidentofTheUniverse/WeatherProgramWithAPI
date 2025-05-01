@@ -186,9 +186,64 @@ public class WeatherController implements Initializable {
 
     @FXML
     void SaveConfiguration(){ //Saves the input that a user has created.
-//        try{
-//
-//        }
+        //The first part is essentially a copy of the check-weather button.
+        String[] savedSets = new String[4];
+        //Sets the default values if left empty.
+        String tempUnit = "Celsius";
+        String windSpeed = "km/h";
+        String country = "";
+        String zipCode = "";
+
+
+        try{
+            //Grabs the new values inputted & Checks to see if the values are null or not
+            if (cmbCountry.getValue() != null){
+                country = nameRemover(cmbCountry.getValue());
+            }
+            if (txtZipCode.getText() != null) {
+                zipCode = txtZipCode.getText().trim();
+            }
+            if (cmbTempUnit.getValue() != null) {
+                tempUnit = cmbTempUnit.getValue();
+            }
+            if (cmbWindSpeed.getValue() != null) {
+                windSpeed = cmbWindSpeed.getValue();
+            }
+            //Validates user input
+            int errorCount = 1;
+            List<String> errors = Validator.validateInput(country, zipCode);
+            //This exists early on so errors can be added to it.
+            if (!errors.isEmpty()){ //Outputs error to both the console and the program, allowing users to understand that the information is not valid.
+                System.out.println("Something was incorrect with the data you inputted, please check below for more information: ");
+
+                for (String error: errors) {
+                    System.out.println(error);
+                    lblError.setText("An error has occurred,please check\nlist below for more information:");
+                    switch (errorCount) {
+
+                        case 1:
+                            lblError1.setText(error);
+                            break;
+                        case 2:
+                            lblError2.setText(error);
+                            break;
+                        case 3:
+                            lblError3.setText(error);
+                            break;
+                    }
+                    errorCount++;
+                }
+            } else {
+                savedSets[0] = country;
+                savedSets[1] = zipCode;
+                savedSets[2] = tempUnit;
+                savedSets[3] = windSpeed;
+
+                WriteFile.FileWrites(savedSets);
+            }
+        } catch (Exception e){
+            System.out.println(e);
+        }
     }
 
     //Method that removes the non-parenthesis from country string.
