@@ -13,3 +13,4 @@ prefered temperature unit and prefered wind speed unit. Please note that the con
 To use the application, the user needs to pick country from a drop-down box, type in an adequate zipcode, and also select the temperature unit and wind
 speed unit from two different drop down boxes as well. After that, the user can click the "Generate forecast" button, in which it will show the next
 seven days of weather in a table, using the location they inputted.
+![UMLAbbottFinalProject drawio](https://github.com/user-attachments/assets/23750e41-669e-41eb-9acb-4469ebf56d47)
