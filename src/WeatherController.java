@@ -7,6 +7,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -59,6 +61,21 @@ public class WeatherController implements Initializable {
         cmbCountry.setItems(FXCollections.observableArrayList("Andorra (AD)","Argentina (AR)","American Samoa (AS)", "Austria (AT)", "Australia (AU)", "Bangladesh (BD)", "Belgium (BE)", "Bulgaria (BG)", "Brazil (BR)", "Canada (CA)", "Switzerland (CH)","Czech Republic (CZ)", "Germany (DE)", "Denmark (DK)","Dominican Republic (DO)", "Spain (ES)","Finland (FI)", "Faroe Islands (FO)","France (FR)","Great Britain (GB)", "United States (US)"));
         cmbTempUnit.setItems(FXCollections.observableArrayList("Celsius", "Fahrenheit", "Kelvin"));
         cmbWindSpeed.setItems(FXCollections.observableArrayList("km/h", "m/s", "mph", "Knots"));
+
+        //Will probably not attempt the config saver.
+        try {
+            if (!ConfigFileReader.ReadConfig().isEmpty()){
+                String rawSet = ConfigFileReader.ReadConfig();
+                String[] savedSet = new String[4];
+                int index = 0;
+                for(String set : savedSet){
+
+                }
+                System.out.println(rawSet);
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
     }
 
      //A method to add information to the array list.
@@ -233,13 +250,13 @@ public class WeatherController implements Initializable {
                     }
                     errorCount++;
                 }
-            } else {
+            } else {// Adds each item to the string list
                 savedSets[0] = country;
                 savedSets[1] = zipCode;
                 savedSets[2] = tempUnit;
                 savedSets[3] = windSpeed;
 
-                WriteFile.FileWrites(savedSets);
+                WriteFile.FileWrites(savedSets); //uses the write file method.
             }
         } catch (Exception e){
             System.out.println(e);
