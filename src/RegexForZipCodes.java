@@ -58,11 +58,18 @@ public class RegexForZipCodes {
                 if (correct7){
                     matchfound = true;
                 }
-            case "DE", "DO", "ES": //Multiple countries use 5 letter zip codes
+            case "DE", "DO", "ES", "FI": //Multiple countries use 5 letter zip codes
                 Pattern patternFiveNumber = Pattern.compile("^[0-9]{5}$");
                 Matcher matcher8 = patternFiveNumber.matcher(zipCode);
                 boolean correct8 = matcher8.find();
                 if(correct8){
+                    matchfound = true;
+                }
+            case "FO":
+                Pattern patternFaroe = Pattern.compile("^[0-9]{3}$");
+                Matcher matcher9 = patternFaroe.matcher(zipCode);
+                boolean correct9 = matcher9.find();
+                if(correct9){
                     matchfound = true;
                 }
             default:
