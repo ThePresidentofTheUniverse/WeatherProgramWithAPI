@@ -58,7 +58,7 @@ public class RegexForZipCodes {
                 if (correct7){
                     matchfound = true;
                 }
-            case "DE", "DO", "ES", "FI": //Multiple countries use 5 letter zip codes
+            case "DE", "DO", "ES", "FI", "FR": //Multiple countries use 5 letter zip codes
                 Pattern patternFiveNumber = Pattern.compile("^[0-9]{5}$");
                 Matcher matcher8 = patternFiveNumber.matcher(zipCode);
                 boolean correct8 = matcher8.find();
@@ -70,6 +70,13 @@ public class RegexForZipCodes {
                 Matcher matcher9 = patternFaroe.matcher(zipCode);
                 boolean correct9 = matcher9.find();
                 if(correct9){
+                    matchfound = true;
+                }
+            case "GB":
+                Pattern patternBritain = Pattern.compile("^[A-Z]{2}\\d$");
+                Matcher matcher10 = patternBritain.matcher(zipCode);
+                boolean correct10 = matcher10.find();
+                if (correct10){
                     matchfound = true;
                 }
             default:
@@ -94,7 +101,7 @@ public class RegexForZipCodes {
                  * Hungary
                  */
         }
-        //Stopped at Czech Republic
+        //Stopped at French Guyana
 
         return matchfound;
     }

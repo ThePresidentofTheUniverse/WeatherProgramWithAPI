@@ -55,7 +55,7 @@ public class WeatherController implements Initializable {
     //Adds information to the combo boxes, perfect for controlling user input
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        cmbCountry.setItems(FXCollections.observableArrayList("Andorra (AD)","Argentina (AR)","American Samoa (AS)", "Austria (AT)", "Australia (AU)", "Bangladesh (BD)", "Belgium (BE)", "Bulgaria (BG)", "Brazil (BR)", "Canada (CA)", "Switzerland (CH)","Czech Republic (CZ)", "Germany (DE)", "Denmark (DK)","Dominican Republic (DO)", "Spain (ES)","Finland (FI)", "Faroe Islands (FO)", "United States (US)"));
+        cmbCountry.setItems(FXCollections.observableArrayList("Andorra (AD)","Argentina (AR)","American Samoa (AS)", "Austria (AT)", "Australia (AU)", "Bangladesh (BD)", "Belgium (BE)", "Bulgaria (BG)", "Brazil (BR)", "Canada (CA)", "Switzerland (CH)","Czech Republic (CZ)", "Germany (DE)", "Denmark (DK)","Dominican Republic (DO)", "Spain (ES)","Finland (FI)", "Faroe Islands (FO)","France (FR)","Great Britain (GB)", "United States (US)"));
         cmbTempUnit.setItems(FXCollections.observableArrayList("Celsius", "Fahrenheit", "Kelvin"));
         cmbWindSpeed.setItems(FXCollections.observableArrayList("km/h", "m/s", "mph", "Knots"));
     }
