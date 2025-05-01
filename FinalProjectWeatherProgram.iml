@@ -11,6 +11,7 @@
     <orderEntry type="library" name="jars" level="application" />
     <orderEntry type="library" name="java" level="application" />
     <orderEntry type="library" name="json-20250107" level="application" />
-    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="lib" level="application" />
+    <orderEntry type="library" name="jason-java" level="application" />
   </component>
 </module>

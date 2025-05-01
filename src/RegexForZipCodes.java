@@ -36,7 +36,7 @@ public class RegexForZipCodes {
                 }
                 break;
             case "BR":
-                Pattern patternBrazil = Pattern.compile("^\\d{9}-(000)$"); //Regex for Brazil (by me).
+                Pattern patternBrazil = Pattern.compile("^\\d{5}-(000)$"); //Regex for Brazil (by me).
                 Matcher matcher4 = patternBrazil.matcher(zipCode);
                 boolean correct4 = matcher4.find();
                 if (correct4){
@@ -51,6 +51,20 @@ public class RegexForZipCodes {
                     matchfound = true;
                 }
                 break;
+            case "CZ":
+                Pattern patternCzech = Pattern.compile("^[0-9]{3}\\s[0-9]{2}$");
+                Matcher matcher7 = patternCzech.matcher(zipCode);
+                boolean correct7 = matcher7.find();
+                if (correct7){
+                    matchfound = true;
+                }
+            case "DE", "DO", "ES": //Multiple countries use 5 letter zip codes
+                Pattern patternFiveNumber = Pattern.compile("^[0-9]{5}$");
+                Matcher matcher8 = patternFiveNumber.matcher(zipCode);
+                boolean correct8 = matcher8.find();
+                if(correct8){
+                    matchfound = true;
+                }
             default:
                 Pattern patternMultiple = Pattern.compile("^\\d{4}$");
                 Matcher matcher6 = patternMultiple.matcher(zipCode);
