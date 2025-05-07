@@ -1,51 +1,81 @@
-# 🌟 Java Final Project – Spring 2025
+# 🌦️ Weather Forecast Application
 
-This JavaFX application demonstrates the integration of **two APIs**:  
-✅ [Zippopotam.us](https://api.zippopotam.us) – to convert a U.S. ZIP code into latitude and longitude  
-✅ [Open-Meteo](https://open-meteo.com/) – to retrieve weather information based on coordinates
+## Overview
 
-The project showcases working with **JSON data**, **API chaining**, and building a functional **JavaFX user interface**.
+This is a simple yet functional weather application that uses **two APIs**—[Open-Meteo](https://open-meteo.com/) and [Zippopotam.us](https://api.zippopotam.us)—to fetch and display weather data. The project was developed over the course of five days.
 
----
-
-## 🎥 Video Demonstration
-
-![Screen recording](images/screen-recording.gif)
+It provides weather forecasts in both **console-based** and **JavaFX graphical user interface (GUI)** formats.
 
 ---
 
-## 📋 Project Overview
+## 📌 What Does It Do?
 
-The goal of this project is to create a JavaFX app that allows users to enter a U.S. ZIP code, fetches the corresponding latitude and longitude using the Zippopotam.us API, then uses those coordinates to retrieve and display weather data from Open-Meteo.
+The application allows the user to:
 
-You’ll get hands-on experience with:
-- Consuming multiple APIs
-- Parsing JSON data
-- Building a user-friendly GUI with JavaFX
-- Input validation using regular expressions
-- Structuring a Java application with clean code practices
+✅ Enter a ZIP code and country code  
+✅ Retrieve **latitude, longitude, city, and country information**  
+✅ View an image and basic details about the country  
+✅ Display a **7-day weather forecast** including temperature, wind speed, and conditions
 
-This project starts with a **console-based UI** to validate API integration and core logic, then moves into a JavaFX graphical interface.
+The forecast is available for **multiple countries** by leveraging ZIP codes via the Zippopotam.us API and weather data via the Open-Meteo API.
+
+Both a **console version** and a **JavaFX GUI version** are provided.
 
 ---
 
-## ✅ Features
+## 🚀 How to Use
 
-- Console-based app for initial testing
-- JavaFX graphical interface with:
-    - ZIP code input field (with validation using regex)
-    - 'Fetch Weather' button
-    - Display area showing:
-        - Temperature
-        - Wind speed
-        - Weather condition (clear, cloudy, etc.)
-- Error handling for invalid input and network errors
-- API chaining: using output from one API as input for another
+### Console Application
 
-### 🎯 Bonus Features (Optional):
-- Toggle between **Celsius** and **Fahrenheit**
-- Display additional data (humidity, pressure, weather icon)
-- Save user's previous ZIP code inputs
+While primarily intended for testing purposes, the console version allows you to:
+
+1. Enter a **valid country code** (as used by Zippopotam.us)
+2. Enter a **ZIP code** for that country
+3. Choose a **temperature unit** (Celsius/Fahrenheit)
+4. Choose a **wind speed unit** (e.g., mph, km/h)
+
+⚠️ The console interface is minimal and designed mainly for backend testing.
+
+---
+
+### JavaFX GUI Application
+
+For the full user experience:
+
+1. Select a **country** from the dropdown menu
+2. Enter a valid **ZIP code**
+3. Choose your **temperature unit** from the dropdown
+4. Choose your **wind speed unit** from the dropdown
+5. Click **"Generate Forecast"**
+
+➡️ The application will display a **7-day weather forecast** in a table format, based on your selected location.
+
+It will also show the **latitude, longitude, city, country name, a country image**, and some additional country details.
+
+---
+
+## 🗺️ UML Design
+
+Below is the UML diagram for the project design:
+
+![UML Diagram](https://github.com/user-attachments/assets/23750e41-669e-41eb-9acb-4469ebf56d47)
+
+---
+
+## 🎥 Screen Recording
+
+A short demo of the app in action:
+
+![Screen recording](src/Images/screen-recording.gif)
+
+---
+
+## ✨ Project Highlights
+
+- ✅ Uses **two APIs** to chain data (location → weather)
+- ✅ Supports **multiple countries**
+- ✅ Provides both **console-based** and **GUI-based** interactions
+- ✅ Displays **detailed weather data** alongside **location metadata**
 
 ---
 
@@ -54,3 +84,5 @@ This project starts with a **console-based UI** to validate API integration and 
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/ThePresidentofTheUniverse/WeatherProgramWithAPI.git
+
+Feel free to explore the source code, leave feedback, or fork the project!
