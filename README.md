@@ -1,16 +1,56 @@
-OVERVIEW:
-This is relaitvely simple weather program that utilizes the two APIs known as Meteo.api and zippopotam.us, built within the time span of five days.
+# 🌟 Java Final Project – Spring 2025
 
-WHAT DOES IT DO?
-Coming in both console-app form and GUI form, this is a program that gives the user a forecast of the weather over a seven day period in several different
-countries through the means of utilizing zipcodes. It also displays the Latitude, Longitude, City, Country name, image of country and some basic information
-about the country.
+This JavaFX application demonstrates the integration of **two APIs**:  
+✅ [Zippopotam.us](https://api.zippopotam.us) – to convert a U.S. ZIP code into latitude and longitude  
+✅ [Open-Meteo](https://open-meteo.com/) – to retrieve weather information based on coordinates
 
-HOW TO USE:
-While not preferable, to use the console app, the user must enter a valid country initials that zippopotam.us uses, they also need to type in the zipcode,
-prefered temperature unit and prefered wind speed unit. Please note that the console app's primary purpose is for testing, thus it is incredibly barebones.
+The project showcases working with **JSON data**, **API chaining**, and building a functional **JavaFX user interface**.
 
-To use the application, the user needs to pick country from a drop-down box, type in an adequate zipcode, and also select the temperature unit and wind
-speed unit from two different drop down boxes as well. After that, the user can click the "Generate forecast" button, in which it will show the next
-seven days of weather in a table, using the location they inputted.
-![UMLAbbottFinalProject drawio](https://github.com/user-attachments/assets/23750e41-669e-41eb-9acb-4469ebf56d47)
+---
+
+## 🎥 Video Demonstration
+
+![Screen recording](images/screen-recording.gif)
+
+---
+
+## 📋 Project Overview
+
+The goal of this project is to create a JavaFX app that allows users to enter a U.S. ZIP code, fetches the corresponding latitude and longitude using the Zippopotam.us API, then uses those coordinates to retrieve and display weather data from Open-Meteo.
+
+You’ll get hands-on experience with:
+- Consuming multiple APIs
+- Parsing JSON data
+- Building a user-friendly GUI with JavaFX
+- Input validation using regular expressions
+- Structuring a Java application with clean code practices
+
+This project starts with a **console-based UI** to validate API integration and core logic, then moves into a JavaFX graphical interface.
+
+---
+
+## ✅ Features
+
+- Console-based app for initial testing
+- JavaFX graphical interface with:
+    - ZIP code input field (with validation using regex)
+    - 'Fetch Weather' button
+    - Display area showing:
+        - Temperature
+        - Wind speed
+        - Weather condition (clear, cloudy, etc.)
+- Error handling for invalid input and network errors
+- API chaining: using output from one API as input for another
+
+### 🎯 Bonus Features (Optional):
+- Toggle between **Celsius** and **Fahrenheit**
+- Display additional data (humidity, pressure, weather icon)
+- Save user's previous ZIP code inputs
+
+---
+
+## 🚀 How to Run the Application
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/ThePresidentofTheUniverse/WeatherProgramWithAPI.git
